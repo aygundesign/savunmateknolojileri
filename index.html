@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AYGUN DESIGN | Vision Technologies</title>
+  <title>Vision Technologies</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700;800&display=swap" rel="stylesheet">
 
@@ -11,6 +11,83 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
   <style>
+    .hero-content{
+  position: relative;
+  z-index: 10;
+  width: min(1200px, 92%);
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-badge{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 28px;
+  margin-bottom: 26px;
+  border: 1px solid rgba(0, 245, 255, 0.25);
+  border-radius: 999px;
+  background: rgba(7, 15, 28, 0.55);
+  backdrop-filter: blur(10px);
+  color: rgba(230, 245, 255, 0.92);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  box-shadow: 0 0 30px rgba(0, 245, 255, 0.08);
+}
+
+#title{
+  margin: 0;
+  line-height: 0.96;
+  font-weight: 800;
+  letter-spacing: -2px;
+  font-size: clamp(42px, 7vw, 110px);
+  background: linear-gradient(90deg, #f5fbff 0%, #7defff 40%, #1ee4ff 68%, #8a7dff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+  text-align: center;
+  max-width: 1200px;
+}
+
+.hero-marquee{
+  width: 100%;
+  max-width: 1100px;
+  overflow: hidden;
+  margin-top: 30px;
+  padding: 8px 0;
+  position: relative;
+}
+
+.hero-marquee-track{
+  display: flex;
+  width: max-content;
+  white-space: nowrap;
+  animation: heroMarquee 22s linear infinite;
+}
+
+.hero-marquee-track span{
+  display: inline-block;
+  padding-right: 70px;
+  color: rgba(210, 220, 230, 0.50);
+  font-size: clamp(18px, 2vw, 26px);
+  font-weight: 500;
+  letter-spacing: 0.4px;
+}
+
+@keyframes heroMarquee{
+  0%{
+    transform: translateX(0);
+  }
+  100%{
+    transform: translateX(-50%);
+  }
+}
     :root{
       --bg:#03040A;
       --bg2:#071A2F;
@@ -276,7 +353,7 @@
   <div class="cursor"></div>
 
   <header>
-    <div class="logo">AYGUN DESIGN</div>
+    <div class="logo">VISION TECHNOLOGIES</div>
     <nav>
       <a href="#">Ana Sayfa</a>
       <a href="#">Teknolojiler</a>
@@ -286,13 +363,29 @@
   </header>
 
   <section class="hero">
-    <div class="hero-badge">AI • Vision • Drone Systems</div>
-    <h1 id="title">VISION THE FUTURE</h1>
-    <p>
-      Yapay zekâ, görüntü işleme, drone teknolojileri ve otonom sistemler için
-      premium dijital deneyim.
-    </p>
-  </section>
+  <div class="hero-content">
+    <div class="hero-badge">
+      DEEP LEARNING-BASED AUTONOMOUS VEHICLE CONTROL WITH HAND GESTURES
+    </div>
+
+    <h1 id="title">
+      EL HAREKETLERİ İLE<br>
+      OTONOM ARAÇ<br>
+      KONTROLLERİ
+    </h1>
+
+    <div class="hero-marquee">
+      <div class="hero-marquee-track">
+        <span>
+          Savunma Sanayi • Teknoloji • Yazılım • Otonom Araçlar • Yenilikçi Mühendislik Çözümleri •
+        </span>
+        <span>
+          Savunma Sanayi • Teknoloji • Yazılım • Otonom Araçlar • Yenilikçi Mühendislik Çözümleri •
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
 
   <section class="section">
     <h2>Teknoloji Alanları</h2>
@@ -319,7 +412,7 @@
     </div>
   </section>
 
-  <footer>© 2026 AYGUN DESIGN • Vision Technologies</footer>
+  <footer>© 2026 YAĞMUR SÖNMEZ (BİLGİSAYAR MÜHENDİSİ) • Vision Technologies</footer>
 
  <script>
   /* CUSTOM CURSOR */
@@ -339,13 +432,13 @@
     ease: "power4.out"
   });
 
-  gsap.from(".hero p", {
-    y: 40,
-    opacity: 0,
-    duration: 1.2,
-    delay: 0.35,
-    ease: "power3.out"
-  });
+  gsap.from(".hero-marquee", {
+  y: 30,
+  opacity: 0,
+  duration: 1.2,
+  delay: 0.35,
+  ease: "power3.out"
+});
 
   gsap.from(".hero-badge", {
     y: 30,

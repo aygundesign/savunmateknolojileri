@@ -376,7 +376,7 @@
   renderer.setClearColor(0x03040A, 0);
   document.body.appendChild(renderer.domElement);
 
-  camera.position.set(1.4, 8.4, 9.8);
+  camera.position.set(-1.8, -7.6, -10.0);
 
   /* LIGHTS */
   const ambient = new THREE.AmbientLight(0xffffff, 0.9);
@@ -742,9 +742,8 @@ const ring4 = createRing(5.8, 0.016, 0x00f5ff, 0.10, 1.42, -0.18, 0.22, -2.3);
   });
 
   /* BAŞLANGIÇ AÇISI - BİRAZ DAHA YUKARIDAN */
-  droneGroup.rotation.x = -0.52;
-  droneGroup.rotation.z = 0.06;
-
+ droneGroup.rotation.x = 0.62;
+droneGroup.rotation.z = 0.16;
   /* ANIMATION */
   const clock = new THREE.Clock();
 

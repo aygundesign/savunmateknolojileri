@@ -474,6 +474,379 @@
         max-width:340px;
       }
     }
+ .tech-section{
+  padding-top: 130px;
+}
+
+.tech-layout{
+  max-width: 1380px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 34px;
+  align-items: stretch;
+}
+
+.tech-list{
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.tech-card{
+  min-height: 132px;
+  padding: 24px 26px;
+  border-radius: 24px;
+  border: 1px solid rgba(0,245,255,0.16);
+  background: rgba(5,12,24,0.68);
+  backdrop-filter: blur(14px);
+  display: grid;
+  grid-template-columns: 58px 1fr;
+  gap: 18px;
+  align-items: flex-start;
+  transition: 0.35s ease;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.04),
+    0 20px 60px rgba(0,0,0,0.18);
+}
+
+.tech-card:hover{
+  transform: translateX(8px);
+  border-color: rgba(0,245,255,0.34);
+  box-shadow:
+    0 0 36px rgba(0,245,255,0.12),
+    inset 0 1px 0 rgba(255,255,255,0.06);
+}
+
+.tech-number{
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  color: #00f5ff;
+  font-weight: 800;
+  background: rgba(0,245,255,0.08);
+  border: 1px solid rgba(0,245,255,0.18);
+  box-shadow: 0 0 24px rgba(0,245,255,0.08);
+}
+
+.tech-card strong{
+  display: block;
+  color: #00f5ff;
+  font-size: 21px;
+  margin-bottom: 9px;
+  letter-spacing: 0.2px;
+}
+
+.tech-card span{
+  display: block;
+  color: rgba(220,230,240,0.66);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* SIMULATION PANEL */
+.simulation-panel{
+  min-height: 610px;
+  border-radius: 32px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgba(0,245,255,0.18);
+  background:
+    radial-gradient(circle at 40% 35%, rgba(0,245,255,0.13), transparent 34%),
+    radial-gradient(circle at 75% 70%, rgba(108,59,255,0.16), transparent 32%),
+    rgba(4,10,22,0.74);
+  backdrop-filter: blur(18px);
+  box-shadow:
+    0 35px 100px rgba(0,0,0,0.36),
+    inset 0 1px 0 rgba(255,255,255,0.06);
+}
+
+.sim-header{
+  height: 82px;
+  padding: 22px 26px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sim-header small{
+  display: block;
+  color: rgba(180,195,210,0.55);
+  font-size: 11px;
+  letter-spacing: 1.6px;
+  margin-bottom: 5px;
+}
+
+.sim-header strong{
+  color: #f5fbff;
+  font-size: 17px;
+}
+
+.sim-status{
+  color: #001318;
+  background: linear-gradient(90deg, #00f5ff, #96ffff);
+  padding: 8px 13px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  box-shadow: 0 0 24px rgba(0,245,255,0.22);
+}
+
+.sim-screen{
+  position: relative;
+  height: 370px;
+  overflow: hidden;
+}
+
+.radar-grid{
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0,245,255,0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,245,255,0.055) 1px, transparent 1px);
+  background-size: 38px 38px;
+  opacity: 0.75;
+}
+
+.radar-circle{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border-radius: 50%;
+  border: 1px solid rgba(0,245,255,0.18);
+  transform: translate(-50%, -50%);
+}
+
+.circle-one{
+  width: 220px;
+  height: 220px;
+}
+
+.circle-two{
+  width: 340px;
+  height: 340px;
+  border-color: rgba(108,59,255,0.20);
+}
+
+.radar-sweep{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 180px;
+  height: 180px;
+  transform-origin: left top;
+  background: linear-gradient(45deg, rgba(0,245,255,0.26), transparent 55%);
+  filter: blur(0.4px);
+  animation: radarSweep 4.8s linear infinite;
+}
+
+@keyframes radarSweep{
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+
+.vehicle-core{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 104px;
+  height: 104px;
+  border-radius: 28px;
+  border: 1px solid rgba(0,245,255,0.32);
+  background:
+    radial-gradient(circle at center, rgba(0,245,255,0.18), transparent 58%),
+    rgba(3,8,18,0.88);
+  display: grid;
+  place-items: center;
+  box-shadow:
+    0 0 40px rgba(0,245,255,0.18),
+    inset 0 0 30px rgba(0,245,255,0.06);
+}
+
+.vehicle-dot{
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #00f5ff;
+  box-shadow: 0 0 28px rgba(0,245,255,0.9);
+  animation: corePulse 2s ease-in-out infinite;
+}
+
+.vehicle-core span{
+  position: absolute;
+  bottom: 15px;
+  color: rgba(235,245,255,0.7);
+  font-size: 11px;
+  letter-spacing: 1.4px;
+}
+
+@keyframes corePulse{
+  0%,100%{
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50%{
+    transform: scale(1.16);
+    opacity: 1;
+  }
+}
+
+.gesture-node{
+  position: absolute;
+  width: 76px;
+  height: 76px;
+  border-radius: 24px;
+  border: 1px solid rgba(0,245,255,0.24);
+  background: rgba(3,8,18,0.78);
+  display: grid;
+  place-items: center;
+  color: #00f5ff;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  box-shadow: 0 0 26px rgba(0,245,255,0.08);
+  animation: nodeFloat 3.6s ease-in-out infinite;
+}
+
+.node-one{
+  left: 16%;
+  top: 24%;
+}
+
+.node-two{
+  right: 17%;
+  top: 23%;
+  animation-delay: 0.4s;
+}
+
+.node-three{
+  left: 50%;
+  bottom: 13%;
+  transform: translateX(-50%);
+  animation-delay: 0.8s;
+}
+
+@keyframes nodeFloat{
+  0%,100%{
+    margin-top: 0;
+  }
+  50%{
+    margin-top: -10px;
+  }
+}
+
+.signal-line{
+  position: absolute;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0,245,255,0.65), transparent);
+  transform-origin: left center;
+  opacity: 0.8;
+  animation: signalPulse 2.4s ease-in-out infinite;
+}
+
+.line-one{
+  width: 210px;
+  left: 24%;
+  top: 40%;
+  transform: rotate(20deg);
+}
+
+.line-two{
+  width: 220px;
+  right: 24%;
+  top: 40%;
+  transform: rotate(-20deg);
+}
+
+.line-three{
+  width: 190px;
+  left: 42%;
+  bottom: 28%;
+  transform: rotate(90deg);
+}
+
+@keyframes signalPulse{
+  0%,100%{
+    opacity: 0.25;
+  }
+  50%{
+    opacity: 0.95;
+  }
+}
+
+.sim-data{
+  padding: 24px 26px 28px;
+  border-top: 1px solid rgba(255,255,255,0.07);
+}
+
+.data-row{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 12px 0 8px;
+  color: rgba(225,235,245,0.68);
+  font-size: 13px;
+}
+
+.data-row strong{
+  color: #00f5ff;
+  font-size: 13px;
+}
+
+.data-bar{
+  width: 100%;
+  height: 7px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.06);
+}
+
+.data-bar i{
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #00f5ff, #6c7cff);
+  box-shadow: 0 0 18px rgba(0,245,255,0.28);
+  animation: barFlow 2.8s ease-in-out infinite;
+}
+
+@keyframes barFlow{
+  0%,100%{
+    filter: brightness(1);
+  }
+  50%{
+    filter: brightness(1.45);
+  }
+}
+
+@media(max-width: 1000px){
+  .tech-layout{
+    grid-template-columns: 1fr;
+  }
+
+  .simulation-panel{
+    min-height: 560px;
+  }
+}
+
+@media(max-width: 700px){
+  .tech-card{
+    grid-template-columns: 1fr;
+  }
+
+  .sim-screen{
+    height: 320px;
+  }
+}
   </style>
 </head>
 <body>
@@ -511,31 +884,105 @@
   </div>
 </section>
 
-  <section class="section">
-    <h2>Teknoloji Alanları</h2>
-    <div class="cards">
-      <div class="card">
-        <strong>Görüntü İşleme</strong>
-        <span>Kamera ve sensör verilerinin anlamlandırılması için geliştirilen modern sistem yapıları.</span>
+  <section class="section tech-section">
+  <h2>Teknoloji Alanları</h2>
+
+  <div class="tech-layout">
+    <div class="tech-list">
+
+      <div class="tech-card">
+        <div class="tech-number">01</div>
+        <div>
+          <strong>Görüntü İşleme</strong>
+          <span>Kamera ve sensör verilerinin gerçek zamanlı analiz edilmesini sağlayan görüntü işleme altyapısı.</span>
+        </div>
       </div>
 
-      <div class="card">
-        <strong>Yapay Zekâ</strong>
-        <span>Veriyi analiz eden, yorumlayan ve karar süreçlerine katkı sağlayan akıllı teknoloji altyapısı.</span>
+      <div class="tech-card">
+        <div class="tech-number">02</div>
+        <div>
+          <strong>Derin Öğrenme</strong>
+          <span>El hareketlerinin algılanması, sınıflandırılması ve kontrol komutlarına dönüştürülmesi için akıllı model yapısı.</span>
+        </div>
       </div>
 
-      <div class="card">
-        <strong>Drone Sistemleri</strong>
-        <span>Hava platformları, saha gözlemi ve ileri teknoloji projeleri için güçlü çözüm yaklaşımı.</span>
+      <div class="tech-card">
+        <div class="tech-number">03</div>
+        <div>
+          <strong>Otonom Araç Kontrolü</strong>
+          <span>Algılanan hareket komutlarının otonom araç sistemlerine güvenli ve kontrollü şekilde aktarılması.</span>
+        </div>
       </div>
 
-      <div class="card">
-        <strong>Otonom Teknolojiler</strong>
-        <span>Algılama, analiz ve aksiyon döngüsünü tek yapıda bir araya getiren gelişmiş sistem mantığı.</span>
+      <div class="tech-card">
+        <div class="tech-number">04</div>
+        <div>
+          <strong>Yenilikçi Mühendislik</strong>
+          <span>Yazılım, yapay zekâ ve kontrol sistemlerini bir araya getiren teknoloji odaklı mühendislik yaklaşımı.</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="simulation-panel">
+      <div class="sim-header">
+        <div>
+          <small>CONTROL SIMULATION</small>
+          <strong>Gesture Command Interface</strong>
+        </div>
+        <span class="sim-status">ACTIVE</span>
+      </div>
+
+      <div class="sim-screen">
+        <div class="radar-grid"></div>
+        <div class="radar-circle circle-one"></div>
+        <div class="radar-circle circle-two"></div>
+        <div class="radar-sweep"></div>
+
+        <div class="vehicle-core">
+          <div class="vehicle-dot"></div>
+          <span>AV-01</span>
+        </div>
+
+        <div class="gesture-node node-one">
+          <span>HAND</span>
+        </div>
+
+        <div class="gesture-node node-two">
+          <span>AI</span>
+        </div>
+
+        <div class="gesture-node node-three">
+          <span>CTRL</span>
+        </div>
+
+        <div class="signal-line line-one"></div>
+        <div class="signal-line line-two"></div>
+        <div class="signal-line line-three"></div>
+      </div>
+
+      <div class="sim-data">
+        <div class="data-row">
+          <span>Gesture Detection</span>
+          <strong>98%</strong>
+        </div>
+        <div class="data-bar"><i style="width:98%;"></i></div>
+
+        <div class="data-row">
+          <span>Model Confidence</span>
+          <strong>94%</strong>
+        </div>
+        <div class="data-bar"><i style="width:94%;"></i></div>
+
+        <div class="data-row">
+          <span>Control Signal</span>
+          <strong>ONLINE</strong>
+        </div>
+        <div class="data-bar"><i style="width:88%;"></i></div>
       </div>
     </div>
-  </section>
-
+  </div>
+</section>
   <footer>© 2026 YAĞMUR SÖNMEZ (BİLGİSAYAR MÜHENDİSİ) • Vision Technologies</footer>
 
  <script>

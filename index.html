@@ -376,7 +376,7 @@
   renderer.setClearColor(0x03040A, 0);
   document.body.appendChild(renderer.domElement);
 
-  camera.position.set(0, 4.2, 10.6);
+  camera.position.set(1.4, 8.4, 9.8);
 
   /* LIGHTS */
   const ambient = new THREE.AmbientLight(0xffffff, 0.9);
@@ -759,8 +759,8 @@ const ring4 = createRing(5.8, 0.016, 0x00f5ff, 0.10, 1.42, -0.18, 0.22, -2.3);
     droneGroup.rotation.y += 0.0105;
 
     /* YUKARIDAN PROFESYONEL BAKIŞ */
-    droneGroup.rotation.x = -0.52 + Math.sin(t * 0.65) * 0.022 + mouse.y * 0.025;
-    droneGroup.rotation.z = 0.06 + Math.cos(t * 0.45) * 0.018 + mouse.x * 0.025;
+   droneGroup.rotation.x = -0.9 + Math.sin(t * 0.65) * 0.018 + mouse.y * 0.018;
+    droneGroup.rotation.z = 0.16 + Math.cos(t * 0.45) * 0.014 + mouse.x * 0.018;
     droneGroup.position.y = 0.12 + Math.sin(t * 1.25) * 0.08;
 
     propellers.forEach((prop, i) => {

@@ -354,7 +354,76 @@
     delay: 0.15,
     ease: "power3.out"
   });
+/* FLU CODE FLOW BACKGROUND */
+const codeCanvas = document.createElement("canvas");
+const codeCtx = codeCanvas.getContext("2d");
 
+codeCanvas.style.position = "fixed";
+codeCanvas.style.top = "0";
+codeCanvas.style.left = "0";
+codeCanvas.style.width = "100%";
+codeCanvas.style.height = "100%";
+codeCanvas.style.zIndex = "-5";
+codeCanvas.style.pointerEvents = "none";
+codeCanvas.style.opacity = "0.28";
+codeCanvas.style.filter = "blur(0.7px)";
+document.body.appendChild(codeCanvas);
+
+function resizeCodeCanvas(){
+  codeCanvas.width = window.innerWidth;
+  codeCanvas.height = window.innerHeight;
+}
+
+resizeCodeCanvas();
+
+const codeWords = [
+  "AI", "VISION", "DRONE", "SYSTEM", "TRACK", "DATA",
+  "SCAN", "CORE", "UAV", "SIGNAL", "TARGET", "VECTOR",
+  "0101", "1100", "AUTH", "NODE", "SYNC", "MODEL"
+];
+
+const codeStreams = Array.from({ length: 62 }, () => ({
+  x: Math.random() * window.innerWidth,
+  y: Math.random() * window.innerHeight,
+  speed: 0.35 + Math.random() * 0.85,
+  size: 10 + Math.random() * 8,
+  alpha: 0.08 + Math.random() * 0.22,
+  word: codeWords[Math.floor(Math.random() * codeWords.length)]
+}));
+
+function drawCodeFlow(){
+  codeCtx.clearRect(0, 0, codeCanvas.width, codeCanvas.height);
+
+  codeCtx.fillStyle = "rgba(3, 4, 10, 0.12)";
+  codeCtx.fillRect(0, 0, codeCanvas.width, codeCanvas.height);
+
+  codeStreams.forEach((stream, index) => {
+    codeCtx.font = `${stream.size}px monospace`;
+    codeCtx.fillStyle = `rgba(0, 245, 255, ${stream.alpha})`;
+
+    const repeatCount = 4 + Math.floor(Math.random() * 3);
+
+    for(let i = 0; i < repeatCount; i++){
+      const text = codeWords[(index + i) % codeWords.length];
+      codeCtx.fillText(text, stream.x, stream.y - i * stream.size * 1.8);
+    }
+
+    stream.y += stream.speed;
+    stream.x += Math.sin(stream.y * 0.006) * 0.18;
+
+    if(stream.y > codeCanvas.height + 120){
+      stream.y = -80;
+      stream.x = Math.random() * codeCanvas.width;
+      stream.word = codeWords[Math.floor(Math.random() * codeWords.length)];
+    }
+  });
+
+  requestAnimationFrame(drawCodeFlow);
+}
+
+drawCodeFlow();
+
+window.addEventListener("resize", resizeCodeCanvas);
   /* THREE JS */
   const scene = new THREE.Scene();
   scene.fog = new THREE.Fog(0x03040A, 14, 42);
@@ -710,24 +779,24 @@ const ring3 = createRing(5.0, 0.018, 0xffffff, 0.10, 1.24, 0.12, -0.15, -2.0);
 const ring4 = createRing(5.8, 0.016, 0x00f5ff, 0.10, 1.42, -0.18, 0.22, -2.3);
 
   /* PARTICLES */
-  const particleCount = 130;
+  const particleCount = 260;
   const positions = new Float32Array(particleCount * 3);
 
   for (let i = 0; i < particleCount; i++) {
-    positions[i * 3] = (Math.random() - 0.5) * 22;
-    positions[i * 3 + 1] = (Math.random() - 0.5) * 13;
-    positions[i * 3 + 2] = (Math.random() - 0.5) * 18 - 2;
+   positions[i * 3] = (Math.random() - 0.5) * 30;
+positions[i * 3 + 1] = (Math.random() - 0.5) * 18;
+positions[i * 3 + 2] = (Math.random() - 0.5) * 24 - 3;
   }
 
   const particleGeo = new THREE.BufferGeometry();
   particleGeo.setAttribute("position", new THREE.BufferAttribute(positions, 3));
 
   const particleMat = new THREE.PointsMaterial({
-    color: 0x00f5ff,
-    size: 0.032,
-    transparent: true,
-    opacity: 0.24
-  });
+  color: 0x00f5ff,
+  size: 0.038,
+  transparent: true,
+  opacity: 0.34
+});
 
   const particles = new THREE.Points(particleGeo, particleMat);
   scene.add(particles);

@@ -14,54 +14,119 @@
     .hero-content{
   position: relative;
   z-index: 10;
-  width: min(1200px, 92%);
+  width: min(1280px, 94%);
   margin: 0 auto;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  /* Drone’un önü kapanmasın diye yazı bloğunu biraz aşağı aldık */
+  transform: translateY(118px);
 }
 
 .hero-badge{
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 14px 28px;
-  margin-bottom: 26px;
-  border: 1px solid rgba(0, 245, 255, 0.25);
+  padding: 13px 26px;
+  margin-bottom: 24px;
+  border: 1px solid rgba(0, 245, 255, 0.24);
   border-radius: 999px;
-  background: rgba(7, 15, 28, 0.55);
-  backdrop-filter: blur(10px);
-  color: rgba(230, 245, 255, 0.92);
-  font-size: 15px;
+  background: rgba(7, 15, 28, 0.50);
+  backdrop-filter: blur(12px);
+  color: rgba(235, 245, 255, 0.90);
+  font-size: clamp(10px, 1vw, 14px);
   font-weight: 600;
-  letter-spacing: 2px;
+  letter-spacing: 1.8px;
   text-transform: uppercase;
   box-shadow: 0 0 30px rgba(0, 245, 255, 0.08);
+  max-width: 94%;
 }
 
 #title{
   margin: 0;
-  line-height: 0.96;
+  max-width: 1180px;
+  line-height: 0.98;
   font-weight: 800;
   letter-spacing: -2px;
-  font-size: clamp(42px, 7vw, 110px);
-  background: linear-gradient(90deg, #f5fbff 0%, #7defff 40%, #1ee4ff 68%, #8a7dff 100%);
+
+  /* Önceki gibi dev değil, drone’u kapatmayacak premium ölçü */
+  font-size: clamp(36px, 5.3vw, 82px);
+
+  background: linear-gradient(
+    90deg,
+    #f5fbff 0%,
+    #bdfbff 26%,
+    #22e7ff 58%,
+    #4fb6ff 78%,
+    #8a7dff 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+
   text-transform: uppercase;
   text-align: center;
-  max-width: 1200px;
+
+  /* Okunurluk için hafif gölge, ama drone’u öldürmez */
+  filter: drop-shadow(0 0 22px rgba(0, 245, 255, 0.10));
 }
 
 .hero-marquee{
   width: 100%;
-  max-width: 1100px;
+  max-width: 1120px;
   overflow: hidden;
-  margin-top: 30px;
+  margin-top: 28px;
   padding: 8px 0;
   position: relative;
+  opacity: 0.92;
+}
+
+.hero-marquee::before,
+.hero-marquee::after{
+  content:"";
+  position:absolute;
+  top:0;
+  width:120px;
+  height:100%;
+  z-index:2;
+  pointer-events:none;
+}
+
+.hero-marquee::before{
+  left:0;
+  background:linear-gradient(90deg, rgba(3,4,10,0.95), transparent);
+}
+
+.hero-marquee::after{
+  right:0;
+  background:linear-gradient(270deg, rgba(3,4,10,0.95), transparent);
+}
+
+.hero-marquee-track{
+  display: flex;
+  width: max-content;
+  white-space: nowrap;
+  animation: heroMarquee 24s linear infinite;
+}
+
+.hero-marquee-track span{
+  display: inline-block;
+  padding-right: 70px;
+  color: rgba(210, 220, 230, 0.54);
+  font-size: clamp(16px, 1.7vw, 23px);
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+@keyframes heroMarquee{
+  0%{
+    transform: translateX(0);
+  }
+  100%{
+    transform: translateX(-50%);
+  }
 }
 
 .hero-marquee-track{
@@ -370,7 +435,7 @@
 
     <h1 id="title">
       EL HAREKETLERİ İLE<br>
-     DERİN ÖĞRENME TABANLI OTONOM ARAÇ KONTROLLERİ<br>
+     DERİN ÖĞRENME TABANLI OTONOM ARAÇ KONTROLLERİ
     </h1>
 
     <div class="hero-marquee">

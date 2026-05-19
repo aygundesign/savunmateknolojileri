@@ -376,8 +376,7 @@
   renderer.setClearColor(0x03040A, 0);
   document.body.appendChild(renderer.domElement);
 
-  camera.position.set(1.6, 6.3, 10.2);
-
+  camera.position.set(1.5, 5.4, 10.4);
   /* LIGHTS */
   const ambient = new THREE.AmbientLight(0xffffff, 0.9);
   scene.add(ambient);
@@ -742,8 +741,8 @@ const ring4 = createRing(5.8, 0.016, 0x00f5ff, 0.10, 1.42, -0.18, 0.22, -2.3);
   });
 
   /* BAŞLANGIÇ AÇISI - BİRAZ DAHA YUKARIDAN */
- droneGroup.rotation.x = 0.42;
-droneGroup.rotation.z = 0.16;
+ droneGroup.rotation.x = 0.30;
+droneGroup.rotation.z = 0.14;
   /* ANIMATION */
   const clock = new THREE.Clock();
 
@@ -758,8 +757,8 @@ droneGroup.rotation.z = 0.16;
     droneGroup.rotation.y += 0.0105;
 
     /* YUKARIDAN PROFESYONEL BAKIŞ */
-   droneGroup.rotation.x = 0.42 + Math.sin(t * 0.65) * 0.014 - mouse.y * 0.010;
-    droneGroup.rotation.z = 0.14 + Math.cos(t * 0.45) * 0.010 + mouse.x * 0.012;
+   droneGroup.rotation.x = 0.30 + Math.sin(t * 0.65) * 0.012 - mouse.y * 0.008;
+   droneGroup.rotation.z = 0.12 + Math.cos(t * 0.45) * 0.009 + mouse.x * 0.010;
     droneGroup.position.y = 0.12 + Math.sin(t * 1.25) * 0.08;
 
     propellers.forEach((prop, i) => {
@@ -777,11 +776,10 @@ droneGroup.rotation.z = 0.16;
 
     particles.rotation.y += 0.00055;
 
-  camera.position.x += (((mouse.x * 0.16) + 1.6) - camera.position.x) * 0.02;
-camera.position.y += (((-mouse.y * 0.06) + 6.3) - camera.position.y) * 0.02;
-camera.position.z += ((10.2) - camera.position.z) * 0.02;
-camera.lookAt(0, 0.05, 0);
-
+  camera.position.x += (((mouse.x * 0.14) + 1.5) - camera.position.x) * 0.02;
+camera.position.y += (((-mouse.y * 0.05) + 5.4) - camera.position.y) * 0.02;
+camera.position.z += ((10.4) - camera.position.z) * 0.02;
+camera.lookAt(0, -0.02, 0);
     renderer.render(scene, camera);
   }
 

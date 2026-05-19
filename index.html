@@ -937,11 +937,41 @@
   font-weight: 700;
   letter-spacing: 0.5px;
 }
+  .mouse-glow{
+  position: fixed;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+  transform: translate(-50%, -50%);
+  background:
+    radial-gradient(circle, rgba(0,245,255,0.16) 0%, rgba(108,59,255,0.08) 35%, transparent 70%);
+  filter: blur(18px);
+  opacity: 0.75;
+  mix-blend-mode: screen;
+}
+
+.cursor-trail{
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  background: #00f5ff;
+  box-shadow:
+    0 0 12px rgba(0,245,255,0.9),
+    0 0 28px rgba(108,59,255,0.45);
+  opacity: 0;
+}
   </style>
 </head>
 <body>
 
   <div class="cursor"></div>
+  <div class="mouse-glow"></div>
 
   <header>
     <div class="logo">VISION TECHNOLOGIES</div>
@@ -1054,14 +1084,64 @@
   <footer>© 2026 YAĞMUR SÖNMEZ (BİLGİSAYAR MÜHENDİSİ) • Vision Technologies</footer>
 
  <script>
-  /* CUSTOM CURSOR */
-  const cursor = document.querySelector(".cursor");
-  document.addEventListener("mousemove", (e) => {
-    if (cursor) {
-      cursor.style.top = e.clientY + "px";
-      cursor.style.left = e.clientX + "px";
-    }
+ /* PREMIUM MOUSE EFFECT */
+const cursor = document.querySelector(".cursor");
+const mouseGlow = document.querySelector(".mouse-glow");
+
+let mouseX = window.innerWidth / 2;
+let mouseY = window.innerHeight / 2;
+let glowX = mouseX;
+let glowY = mouseY;
+
+document.addEventListener("mousemove", (e) => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+
+  if (cursor) {
+    cursor.style.top = mouseY + "px";
+    cursor.style.left = mouseX + "px";
+  }
+
+  createMouseTrail(mouseX, mouseY);
+});
+
+function createMouseTrail(x, y){
+  const trail = document.createElement("span");
+  trail.className = "cursor-trail";
+  trail.style.left = x + "px";
+  trail.style.top = y + "px";
+
+  document.body.appendChild(trail);
+
+  requestAnimationFrame(() => {
+    trail.style.transition = "0.7s ease";
+    trail.style.opacity = "0.65";
+    trail.style.transform = `translate(-50%, -50%) scale(${1.8 + Math.random() * 1.4})`;
   });
+
+  setTimeout(() => {
+    trail.style.opacity = "0";
+    trail.style.transform = "translate(-50%, -50%) scale(0.2)";
+  }, 120);
+
+  setTimeout(() => {
+    trail.remove();
+  }, 760);
+}
+
+function animateMouseGlow(){
+  glowX += (mouseX - glowX) * 0.08;
+  glowY += (mouseY - glowY) * 0.08;
+
+  if(mouseGlow){
+    mouseGlow.style.left = glowX + "px";
+    mouseGlow.style.top = glowY + "px";
+  }
+
+  requestAnimationFrame(animateMouseGlow);
+}
+
+animateMouseGlow();
 
   /* GSAP HERO */
   /* TYPEWRITER TITLE LOOP */

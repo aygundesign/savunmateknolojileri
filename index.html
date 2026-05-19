@@ -71,6 +71,70 @@
   /* Okunurluk için hafif gölge, ama drone’u öldürmez */
   filter: drop-shadow(0 0 22px rgba(0, 245, 255, 0.10));
 }
+  .typing-title{
+  min-height: 225px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  font-size: clamp(32px, 4.7vw, 72px);
+  line-height: 1.08;
+  font-weight: 800;
+  letter-spacing: -1.4px;
+  text-transform: uppercase;
+
+  background: linear-gradient(
+    90deg,
+    #ffffff 0%,
+    #b9ffff 18%,
+    #00f5ff 38%,
+    #28bfff 58%,
+    #6c7cff 78%,
+    #ffffff 100%
+  );
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: titleGradientMove 4.8s ease-in-out infinite;
+  filter:
+    drop-shadow(0 0 12px rgba(0,245,255,0.18))
+    drop-shadow(0 0 32px rgba(108,59,255,0.10));
+}
+
+.typing-title::after{
+  content: "";
+  display: inline-block;
+  width: 4px;
+  height: 0.82em;
+  margin-left: 8px;
+  background: #00f5ff;
+  box-shadow: 0 0 18px rgba(0,245,255,0.9);
+  animation: cursorBlink 0.8s infinite;
+  vertical-align: middle;
+}
+
+@keyframes titleGradientMove{
+  0%{
+    background-position: 0% 50%;
+  }
+  50%{
+    background-position: 100% 50%;
+  }
+  100%{
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes cursorBlink{
+  0%, 45%{
+    opacity: 1;
+  }
+  46%, 100%{
+    opacity: 0;
+  }
+}
 
 .hero-marquee{
   width: 100%;
@@ -432,10 +496,7 @@
       DEEP LEARNING BASED AUTONOMOUS VEHICLE CONTROL WITH HAND GESTURES
     </div>
 
-    <h1 id="title">
-      EL HAREKETLERİ İLE<br>
-     DERİN ÖĞRENME TABANLI OTONOM ARAÇ KONTROLLERİ
-    </h1>
+    <h1 id="title" class="typing-title"></h1>
 
     <div class="hero-marquee">
       <div class="hero-marquee-track">
@@ -488,12 +549,43 @@
   });
 
   /* GSAP HERO */
-  gsap.from("#title", {
-    y: 100,
-    opacity: 0,
-    duration: 1.5,
-    ease: "power4.out"
-  });
+  /* TYPEWRITER TITLE LOOP */
+const titleElement = document.getElementById("title");
+
+const titleLines = [
+  "EL HAREKETLERİ İLE DERİN ÖĞRENME TABANLI",
+  "OTONOM ARAÇ KONTROLÜ"
+];
+
+const fullTitle = titleLines.join("\n");
+
+let typingIndex = 0;
+
+function renderTypingText(text){
+  titleElement.innerHTML = text.replace(/\n/g, "<br>");
+}
+
+function startTitleTyping(){
+  typingIndex = 0;
+  renderTypingText("");
+
+  const typingInterval = setInterval(() => {
+    typingIndex++;
+
+    const currentText = fullTitle.substring(0, typingIndex);
+    renderTypingText(currentText);
+
+    if(typingIndex >= fullTitle.length){
+      clearInterval(typingInterval);
+
+      setTimeout(() => {
+        startTitleTyping();
+      }, 8000);
+    }
+  }, 42);
+}
+
+startTitleTyping();
 
   gsap.from(".hero-marquee", {
   y: 30,

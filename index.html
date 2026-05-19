@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ISK Vision Technologies</title>
+  <title>AYGUN DESIGN | Vision & Drone Technologies</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
@@ -11,7 +11,7 @@
     :root{
       --bg-main:#03040A;
       --bg-secondary:#071A2F;
-      --panel:rgba(7,26,47,0.58);
+      --panel:rgba(7,26,47,0.56);
       --panel-strong:rgba(9,25,45,0.82);
       --cyan:#00F5FF;
       --blue:#007BFF;
@@ -34,51 +34,35 @@
     }
 
     body{
-      min-height:100vh;
       background:var(--bg-main);
       color:var(--white);
       overflow-x:hidden;
+      min-height:100vh;
     }
 
     body::before{
       content:"";
       position:fixed;
       inset:0;
+      z-index:-5;
       background:
-        radial-gradient(circle at 20% 20%, rgba(0,245,255,0.12), transparent 28%),
-        radial-gradient(circle at 78% 12%, rgba(108,59,255,0.14), transparent 26%),
-        radial-gradient(circle at 65% 78%, rgba(255,211,77,0.07), transparent 26%),
-        linear-gradient(180deg, #03040A 0%, #050916 48%, #03040A 100%);
-      z-index:-4;
+        radial-gradient(circle at 15% 20%, rgba(0,245,255,0.10), transparent 24%),
+        radial-gradient(circle at 85% 12%, rgba(108,59,255,0.13), transparent 22%),
+        radial-gradient(circle at 70% 78%, rgba(255,211,77,0.08), transparent 22%),
+        linear-gradient(180deg, #03040A 0%, #050915 48%, #03040A 100%);
     }
 
     body::after{
       content:"";
       position:fixed;
       inset:0;
+      z-index:-4;
+      pointer-events:none;
       background-image:
-        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+        linear-gradient(rgba(255,255,255,0.022) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.022) 1px, transparent 1px);
       background-size:80px 80px;
-      mask-image:linear-gradient(to bottom, rgba(0,0,0,0.8), transparent 85%);
-      z-index:-3;
-      pointer-events:none;
-    }
-
-    #spaceCanvas{
-      position:fixed;
-      inset:0;
-      z-index:-2;
-      pointer-events:none;
-    }
-
-    .noise{
-      position:fixed;
-      inset:0;
-      pointer-events:none;
-      opacity:0.035;
-      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-      z-index:-1;
+      mask-image:linear-gradient(to bottom, rgba(0,0,0,0.9), transparent 90%);
     }
 
     .container{
@@ -92,8 +76,8 @@
       left:0;
       width:100%;
       z-index:100;
-      background:linear-gradient(to bottom, rgba(3,4,10,0.88), rgba(3,4,10,0.42));
       backdrop-filter:blur(18px);
+      background:linear-gradient(to bottom, rgba(3,4,10,0.92), rgba(3,4,10,0.45));
       border-bottom:1px solid rgba(255,255,255,0.06);
     }
 
@@ -102,7 +86,7 @@
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:30px;
+      gap:24px;
     }
 
     .brand{
@@ -113,25 +97,18 @@
       color:var(--white);
     }
 
-    .brand img{
-      height:46px;
-      width:auto;
-      display:block;
-      filter:drop-shadow(0 0 18px rgba(0,245,255,0.18));
-    }
-
     .brand-mark{
-      width:44px;
-      height:44px;
+      width:48px;
+      height:48px;
+      border-radius:16px;
       display:grid;
       place-items:center;
-      border-radius:14px;
-      background:linear-gradient(135deg, rgba(0,245,255,0.16), rgba(108,59,255,0.16));
-      border:1px solid rgba(0,245,255,0.22);
-      color:var(--cyan);
       font-weight:900;
+      color:var(--cyan);
+      background:linear-gradient(135deg, rgba(0,245,255,0.16), rgba(108,59,255,0.16));
+      border:1px solid rgba(0,245,255,0.20);
+      box-shadow:0 0 32px rgba(0,245,255,0.10);
       letter-spacing:-1px;
-      box-shadow:0 0 30px rgba(0,245,255,0.10);
     }
 
     .brand-text strong{
@@ -142,33 +119,33 @@
 
     .brand-text span{
       display:block;
-      font-size:11px;
-      color:var(--muted);
       margin-top:3px;
+      color:var(--muted);
+      font-size:11px;
       letter-spacing:1.2px;
       text-transform:uppercase;
     }
 
     nav{
       display:flex;
-      align-items:center;
       gap:28px;
+      align-items:center;
     }
 
     nav a{
-      color:rgba(245,247,250,0.78);
       text-decoration:none;
+      color:rgba(245,247,250,0.76);
       font-size:14px;
       font-weight:500;
-      transition:0.25s ease;
       position:relative;
+      transition:0.25s ease;
     }
 
     nav a::after{
       content:"";
       position:absolute;
       left:0;
-      bottom:-9px;
+      bottom:-8px;
       width:0;
       height:1px;
       background:linear-gradient(90deg,var(--cyan),var(--purple));
@@ -186,31 +163,31 @@
     .nav-cta{
       padding:12px 18px;
       border-radius:999px;
-      color:#041018;
-      background:linear-gradient(90deg,var(--cyan),#74FBFF);
       text-decoration:none;
       font-size:13px;
       font-weight:800;
-      box-shadow:0 0 26px rgba(0,245,255,0.18);
-      transition:0.28s ease;
+      color:#02131B;
+      background:linear-gradient(90deg,var(--cyan),#77FBFF);
+      box-shadow:0 0 26px rgba(0,245,255,0.16);
+      transition:0.25s ease;
     }
 
     .nav-cta:hover{
       transform:translateY(-2px);
-      box-shadow:0 0 40px rgba(0,245,255,0.28);
+      box-shadow:0 0 40px rgba(0,245,255,0.24);
     }
 
     .hero{
       min-height:100vh;
-      padding:150px 0 70px;
       display:flex;
       align-items:center;
+      padding:150px 0 70px;
     }
 
     .hero-grid{
       display:grid;
-      grid-template-columns:1.08fr 0.92fr;
-      gap:54px;
+      grid-template-columns:1.02fr 0.98fr;
+      gap:48px;
       align-items:center;
     }
 
@@ -219,14 +196,14 @@
       align-items:center;
       gap:10px;
       padding:10px 14px;
-      border:1px solid rgba(0,245,255,0.16);
       border-radius:999px;
-      background:rgba(7,26,47,0.36);
+      border:1px solid rgba(0,245,255,0.15);
+      background:rgba(7,26,47,0.34);
       color:rgba(245,247,250,0.82);
-      font-size:12px;
-      letter-spacing:1.3px;
       text-transform:uppercase;
-      margin-bottom:26px;
+      font-size:12px;
+      letter-spacing:1.25px;
+      margin-bottom:24px;
     }
 
     .eyebrow i{
@@ -238,23 +215,23 @@
     }
 
     h1{
-      font-size:clamp(48px, 7vw, 92px);
-      line-height:0.98;
-      letter-spacing:-4px;
+      font-size:clamp(50px, 7vw, 92px);
+      line-height:0.96;
+      letter-spacing:-3px;
       font-weight:900;
-      max-width:820px;
+      max-width:720px;
     }
 
     .gradient-text{
-      background:linear-gradient(90deg,#fff 0%,#BFFBFF 34%,var(--cyan) 60%,#8C7BFF 100%);
+      background:linear-gradient(90deg,#ffffff 0%, #C6FFFF 30%, var(--cyan) 60%, #887CFF 100%);
       -webkit-background-clip:text;
       -webkit-text-fill-color:transparent;
     }
 
     .hero-text p{
-      margin-top:26px;
-      max-width:650px;
-      color:rgba(245,247,250,0.72);
+      margin-top:24px;
+      max-width:620px;
+      color:rgba(245,247,250,0.70);
       font-size:18px;
       line-height:1.75;
     }
@@ -267,28 +244,28 @@
     }
 
     .btn{
-      padding:15px 22px;
-      border-radius:999px;
-      text-decoration:none;
-      font-size:14px;
-      font-weight:800;
-      transition:0.28s ease;
       display:inline-flex;
       align-items:center;
       gap:10px;
+      text-decoration:none;
+      padding:15px 22px;
+      border-radius:999px;
+      font-size:14px;
+      font-weight:800;
+      transition:0.28s ease;
     }
 
     .btn-primary{
-      background:linear-gradient(90deg,var(--cyan),#8C7BFF);
-      color:#031014;
-      box-shadow:0 0 38px rgba(0,245,255,0.18);
+      background:linear-gradient(90deg,var(--cyan),#91FCFF);
+      color:#04131A;
+      box-shadow:0 0 34px rgba(0,245,255,0.18);
     }
 
     .btn-secondary{
       color:var(--white);
       border:1px solid rgba(255,255,255,0.10);
-      background:rgba(255,255,255,0.035);
-      backdrop-filter:blur(12px);
+      background:rgba(255,255,255,0.04);
+      backdrop-filter:blur(10px);
     }
 
     .btn:hover{
@@ -296,7 +273,7 @@
     }
 
     .hero-metrics{
-      margin-top:44px;
+      margin-top:42px;
       display:grid;
       grid-template-columns:repeat(3,1fr);
       gap:16px;
@@ -305,53 +282,52 @@
 
     .metric{
       padding:18px;
-      border:1px solid rgba(255,255,255,0.08);
       border-radius:22px;
       background:rgba(7,26,47,0.34);
+      border:1px solid rgba(255,255,255,0.08);
       backdrop-filter:blur(14px);
     }
 
     .metric strong{
       display:block;
       font-size:28px;
-      color:var(--white);
       letter-spacing:-1px;
     }
 
     .metric span{
       display:block;
       margin-top:6px;
-      font-size:12px;
       color:var(--muted);
+      font-size:12px;
     }
 
-    .vision-card{
-      position:relative;
-      min-height:570px;
-      border:1px solid rgba(255,255,255,0.10);
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.065), rgba(255,255,255,0.025)),
-        rgba(7,26,47,0.44);
+    .drone-panel{
+      min-height:590px;
       border-radius:38px;
+      position:relative;
       overflow:hidden;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.025)),
+        rgba(7,26,47,0.46);
+      border:1px solid rgba(255,255,255,0.10);
       backdrop-filter:blur(22px);
       box-shadow:
         0 40px 120px rgba(0,0,0,0.45),
         inset 0 1px 0 rgba(255,255,255,0.08);
     }
 
-    .vision-card::before{
+    .drone-panel::before{
       content:"";
       position:absolute;
-      inset:-30%;
+      inset:-20%;
       background:
-        radial-gradient(circle at 50% 30%, rgba(0,245,255,0.18), transparent 25%),
-        radial-gradient(circle at 70% 60%, rgba(108,59,255,0.16), transparent 24%),
-        radial-gradient(circle at 35% 75%, rgba(255,211,77,0.10), transparent 20%);
-      filter:blur(18px);
+        radial-gradient(circle at 30% 30%, rgba(0,245,255,0.14), transparent 20%),
+        radial-gradient(circle at 72% 35%, rgba(108,59,255,0.16), transparent 22%),
+        radial-gradient(circle at 58% 76%, rgba(255,211,77,0.08), transparent 20%);
+      filter:blur(26px);
     }
 
-    .vision-top{
+    .panel-top{
       position:relative;
       z-index:2;
       display:flex;
@@ -377,10 +353,10 @@
       display:flex;
       align-items:center;
       gap:8px;
-      color:rgba(245,247,250,0.72);
       font-size:12px;
-      letter-spacing:1px;
       text-transform:uppercase;
+      letter-spacing:1px;
+      color:rgba(245,247,250,0.76);
     }
 
     .status i{
@@ -391,130 +367,51 @@
       box-shadow:0 0 18px #00FF88;
     }
 
-    .vision-screen{
+    .drone-canvas-wrap{
       position:relative;
       z-index:2;
-      padding:28px;
-      min-height:490px;
+      height:520px;
     }
 
-    .scanner{
+    #droneCanvas{
+      width:100%;
+      height:100%;
+      display:block;
+    }
+
+    .hud{
       position:absolute;
-      inset:28px;
+      inset:24px;
+      pointer-events:none;
+      border:1px solid rgba(0,245,255,0.14);
       border-radius:28px;
-      border:1px solid rgba(0,245,255,0.18);
       overflow:hidden;
+    }
+
+    .hud::before{
+      content:"";
+      position:absolute;
+      inset:0;
       background:
         linear-gradient(rgba(0,245,255,0.05) 1px, transparent 1px),
         linear-gradient(90deg, rgba(0,245,255,0.05) 1px, transparent 1px);
-      background-size:34px 34px;
+      background-size:36px 36px;
     }
 
-    .scanner::before{
-      content:"";
+    .scan-line{
       position:absolute;
       left:0;
-      top:-30%;
       width:100%;
-      height:28%;
-      background:linear-gradient(to bottom, transparent, rgba(0,245,255,0.18), transparent);
-      animation:scan 4s linear infinite;
+      height:120px;
+      top:-140px;
+      background:linear-gradient(to bottom, transparent, rgba(0,245,255,0.16), transparent);
+      animation:scanLine 4s linear infinite;
     }
 
-    @keyframes scan{
-      from{top:-30%;}
-      to{top:105%;}
+    @keyframes scanLine{
+      from{top:-140px;}
+      to{top:110%;}
     }
-
-    .target{
-      position:absolute;
-      left:50%;
-      top:50%;
-      width:230px;
-      height:230px;
-      transform:translate(-50%,-50%);
-      border-radius:34px;
-      border:1px solid rgba(0,245,255,0.28);
-      box-shadow:0 0 60px rgba(0,245,255,0.12);
-    }
-
-    .target::before,
-    .target::after{
-      content:"";
-      position:absolute;
-      inset:26px;
-      border:1px solid rgba(255,255,255,0.12);
-      border-radius:26px;
-    }
-
-    .target::after{
-      inset:72px;
-      border-color:rgba(255,211,77,0.22);
-    }
-
-    .drone-shape{
-      position:absolute;
-      left:50%;
-      top:50%;
-      width:92px;
-      height:92px;
-      transform:translate(-50%,-50%) rotate(45deg);
-      border:2px solid rgba(0,245,255,0.8);
-      border-radius:24px;
-      background:rgba(0,245,255,0.06);
-      box-shadow:0 0 34px rgba(0,245,255,0.30);
-      animation:float 4.6s ease-in-out infinite;
-    }
-
-    .drone-shape::before,
-    .drone-shape::after{
-      content:"";
-      position:absolute;
-      background:rgba(255,255,255,0.50);
-    }
-
-    .drone-shape::before{
-      width:150px;
-      height:2px;
-      left:-30px;
-      top:45px;
-    }
-
-    .drone-shape::after{
-      width:2px;
-      height:150px;
-      top:-30px;
-      left:45px;
-    }
-
-    @keyframes float{
-      0%,100%{transform:translate(-50%,-50%) rotate(45deg) translateY(0);}
-      50%{transform:translate(-50%,-50%) rotate(45deg) translateY(-12px);}
-    }
-
-    .data-pill{
-      position:absolute;
-      z-index:3;
-      padding:12px 14px;
-      border-radius:16px;
-      border:1px solid rgba(255,255,255,0.10);
-      background:rgba(3,4,10,0.54);
-      backdrop-filter:blur(14px);
-      font-size:12px;
-      color:rgba(245,247,250,0.78);
-    }
-
-    .data-pill strong{
-      display:block;
-      margin-top:4px;
-      color:var(--cyan);
-      font-size:15px;
-    }
-
-    .pill-1{left:38px;top:88px;}
-    .pill-2{right:42px;top:120px;}
-    .pill-3{left:48px;bottom:86px;}
-    .pill-4{right:52px;bottom:76px;}
 
     section{
       padding:92px 0;
@@ -550,15 +447,15 @@
       font-size:16px;
     }
 
-    .tech-grid{
+    .cards{
       display:grid;
       grid-template-columns:repeat(4,1fr);
       gap:18px;
     }
 
-    .tech-card{
+    .card{
       padding:28px;
-      min-height:250px;
+      min-height:240px;
       border-radius:28px;
       background:var(--panel);
       border:1px solid rgba(255,255,255,0.08);
@@ -568,18 +465,18 @@
       overflow:hidden;
     }
 
-    .tech-card::before{
+    .card::before{
       content:"";
       position:absolute;
-      inset:auto -40% -42% auto;
+      inset:auto -30% -40% auto;
       width:220px;
       height:220px;
-      background:radial-gradient(circle, rgba(0,245,255,0.12), transparent 70%);
+      background:radial-gradient(circle, rgba(0,245,255,0.10), transparent 70%);
     }
 
-    .tech-card:hover{
+    .card:hover{
       transform:translateY(-8px);
-      border-color:rgba(0,245,255,0.24);
+      border-color:rgba(0,245,255,0.22);
       box-shadow:0 24px 60px rgba(0,0,0,0.28);
     }
 
@@ -589,19 +486,19 @@
       border-radius:18px;
       display:grid;
       place-items:center;
-      background:linear-gradient(135deg, rgba(0,245,255,0.16), rgba(108,59,255,0.15));
+      background:linear-gradient(135deg, rgba(0,245,255,0.15), rgba(108,59,255,0.16));
       border:1px solid rgba(0,245,255,0.16);
       color:var(--cyan);
       font-weight:900;
       margin-bottom:24px;
     }
 
-    .tech-card h3{
+    .card h3{
       font-size:20px;
       margin-bottom:12px;
     }
 
-    .tech-card p{
+    .card p{
       color:rgba(245,247,250,0.64);
       line-height:1.7;
       font-size:14px;
@@ -609,7 +506,7 @@
 
     .showcase{
       display:grid;
-      grid-template-columns:0.9fr 1.1fr;
+      grid-template-columns:0.95fr 1.05fr;
       gap:26px;
       align-items:stretch;
     }
@@ -672,7 +569,7 @@
       line-height:1.55;
     }
 
-    .dashboard{
+    .system-panel{
       min-height:560px;
       border-radius:32px;
       background:
@@ -685,7 +582,7 @@
       padding:26px;
     }
 
-    .dashboard::before{
+    .system-panel::before{
       content:"";
       position:absolute;
       inset:0;
@@ -694,11 +591,11 @@
         radial-gradient(circle at 70% 70%, rgba(108,59,255,0.14), transparent 26%);
     }
 
-    .map-panel{
+    .system-map{
       position:relative;
       z-index:2;
-      height:100%;
       min-height:500px;
+      height:100%;
       border-radius:24px;
       border:1px solid rgba(0,245,255,0.16);
       overflow:hidden;
@@ -734,10 +631,10 @@
       box-shadow:0 0 22px var(--cyan);
     }
 
-    .map-dot:nth-child(2){left:22%;top:30%;}
-    .map-dot:nth-child(3){left:62%;top:26%;background:var(--gold);box-shadow:0 0 22px var(--gold);}
-    .map-dot:nth-child(4){left:72%;top:68%;}
-    .map-dot:nth-child(5){left:34%;top:72%;background:var(--purple);box-shadow:0 0 22px var(--purple);}
+    .map-dot.one{left:22%;top:30%;}
+    .map-dot.two{left:62%;top:26%;background:var(--gold);box-shadow:0 0 22px var(--gold);}
+    .map-dot.three{left:72%;top:68%;}
+    .map-dot.four{left:34%;top:72%;background:var(--purple);box-shadow:0 0 22px var(--purple);}
 
     .floating-card{
       position:absolute;
@@ -797,39 +694,6 @@
       font-size:14px;
     }
 
-    .process{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:18px;
-    }
-
-    .step{
-      position:relative;
-      padding:28px;
-      border-radius:26px;
-      background:var(--panel);
-      border:1px solid rgba(255,255,255,0.08);
-      min-height:220px;
-    }
-
-    .step-number{
-      font-size:44px;
-      font-weight:900;
-      color:rgba(0,245,255,0.16);
-      margin-bottom:24px;
-    }
-
-    .step h3{
-      font-size:19px;
-      margin-bottom:10px;
-    }
-
-    .step p{
-      color:rgba(245,247,250,0.62);
-      font-size:14px;
-      line-height:1.65;
-    }
-
     .cta{
       padding:80px 40px;
       border-radius:40px;
@@ -838,8 +702,8 @@
         radial-gradient(circle at 50% 20%, rgba(0,245,255,0.15), transparent 36%),
         linear-gradient(135deg, rgba(7,26,47,0.92), rgba(10,13,35,0.88));
       border:1px solid rgba(255,255,255,0.10);
-      position:relative;
       overflow:hidden;
+      position:relative;
     }
 
     .cta h2{
@@ -889,25 +753,13 @@
         grid-template-columns:1fr;
       }
 
-      .tech-grid,
-      .process{
+      .cards{
         grid-template-columns:repeat(2,1fr);
-      }
-
-      .vision-card{
-        min-height:520px;
       }
     }
 
     @media(max-width:760px){
-      nav{
-        display:none;
-      }
-
-      .nav{
-        height:76px;
-      }
-
+      nav,
       .nav-cta{
         display:none;
       }
@@ -921,48 +773,34 @@
       }
 
       .hero-metrics,
-      .tech-grid,
-      .use-grid,
-      .process{
+      .cards,
+      .use-grid{
         grid-template-columns:1fr;
       }
 
-      .vision-card{
-        min-height:480px;
-        border-radius:28px;
+      .drone-panel{
+        min-height:500px;
       }
 
-      .data-pill{
-        display:none;
-      }
-
-      .section{
-        padding:70px 0;
+      .drone-canvas-wrap{
+        height:430px;
       }
 
       .showcase-info h2{
         font-size:34px;
       }
-
-      .dashboard{
-        min-height:460px;
-      }
     }
   </style>
 </head>
-
 <body>
-  <canvas id="spaceCanvas"></canvas>
-  <div class="noise"></div>
 
   <header>
     <div class="container nav">
       <a href="#" class="brand">
-        <img src="yenilogo.png" alt="Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
-        <div class="brand-mark" style="display:none;">IV</div>
+        <div class="brand-mark">AD</div>
         <div class="brand-text">
-          <strong>ISK Vision Technologies</strong>
-          <span>AI • Vision • Autonomous Systems</span>
+          <strong>AYGUN DESIGN</strong>
+          <span>Vision • Drone • Autonomous Systems</span>
         </div>
       </a>
 
@@ -970,7 +808,7 @@
         <a href="#teknoloji">Teknoloji</a>
         <a href="#sistem">Sistem</a>
         <a href="#alanlar">Kullanım Alanları</a>
-        <a href="#surec">Süreç</a>
+        <a href="#iletisim">İletişim</a>
       </nav>
 
       <a href="#iletisim" class="nav-cta">İletişime Geç</a>
@@ -980,21 +818,21 @@
   <main>
     <section class="hero">
       <div class="container hero-grid">
-        <div class="hero-text">
-          <div class="eyebrow"><i></i> Görüntü işleme ve otonom teknoloji arayüzü</div>
+        <div class="hero-text reveal active">
+          <div class="eyebrow"><i></i> Premium teknoloji arayüzü</div>
 
           <h1>
             Geleceğin <span class="gradient-text">görüntü işleme</span> teknolojileri
           </h1>
 
           <p>
-            Drone teknolojileri, yapay zekâ destekli analiz ve otonom sistem altyapıları için
-            modern, güvenilir ve yüksek performanslı dijital çözümler.
+            Drone sistemleri, yapay zekâ destekli analiz ve otonom teknoloji çözümleri için
+            premium dijital arayüzler ve güçlü teknoloji odaklı sunum deneyimi.
           </p>
 
           <div class="hero-actions">
-            <a href="#teknoloji" class="btn btn-primary">Teknolojiyi İncele →</a>
-            <a href="#sistem" class="btn btn-secondary">Sistem Yapısını Gör</a>
+            <a href="#teknoloji" class="btn btn-primary">Teknolojiyi İncele</a>
+            <a href="#sistem" class="btn btn-secondary">Sistemi Keşfet</a>
           </div>
 
           <div class="hero-metrics">
@@ -1004,47 +842,27 @@
             </div>
             <div class="metric">
               <strong>CV</strong>
-              <span>Computer vision altyapısı</span>
+              <span>Görüntü işleme altyapısı</span>
             </div>
             <div class="metric">
-              <strong>RT</strong>
-              <span>Gerçek zamanlı veri yaklaşımı</span>
+              <strong>UAV</strong>
+              <span>Drone teknoloji yaklaşımı</span>
             </div>
           </div>
         </div>
 
-        <div class="vision-card reveal">
-          <div class="vision-top">
+        <div class="drone-panel reveal">
+          <div class="panel-top">
             <div class="window-dots">
               <span></span><span></span><span></span>
             </div>
-            <div class="status"><i></i> Vision Core Active</div>
+            <div class="status"><i></i> Drone Core Active</div>
           </div>
 
-          <div class="vision-screen">
-            <div class="scanner">
-              <div class="target"></div>
-              <div class="drone-shape"></div>
-            </div>
-
-            <div class="data-pill pill-1">
-              Detection Layer
-              <strong>98.4%</strong>
-            </div>
-
-            <div class="data-pill pill-2">
-              Image Stream
-              <strong>Real-Time</strong>
-            </div>
-
-            <div class="data-pill pill-3">
-              AI Decision
-              <strong>Ready</strong>
-            </div>
-
-            <div class="data-pill pill-4">
-              Vision Model
-              <strong>Adaptive</strong>
+          <div class="drone-canvas-wrap">
+            <canvas id="droneCanvas"></canvas>
+            <div class="hud">
+              <div class="scan-line"></div>
             </div>
           </div>
         </div>
@@ -1055,36 +873,36 @@
       <div class="container">
         <div class="section-head reveal">
           <div class="label">Teknoloji Katmanları</div>
-          <h2>Görüntüden veriye, veriden karara uzanan akıllı yapı.</h2>
+          <h2>Yüksek teknoloji ve premium arayüz deneyimi bir arada.</h2>
           <p>
-            Modern görüntü işleme sistemleri; kamera verisini algılar, işler, anlamlandırır
-            ve otonom karar süreçleri için kullanılabilir hale getirir.
+            Görüntü işleme, yapay zekâ, veri analizi ve drone sistemleri için hazırlanmış
+            güçlü, modern ve premium bir sunum yapısı.
           </p>
         </div>
 
-        <div class="tech-grid">
-          <div class="tech-card reveal">
+        <div class="cards">
+          <div class="card reveal">
             <div class="icon">01</div>
             <h3>Görüntü İşleme</h3>
-            <p>Kamera ve sensör verilerini analiz eden, nesne, alan ve hareket tespiti yapabilen temel teknoloji katmanı.</p>
+            <p>Kamera ve sensör verilerinin anlamlandırılması için geliştirilen modern teknoloji yaklaşımı.</p>
           </div>
 
-          <div class="tech-card reveal">
+          <div class="card reveal">
             <div class="icon">02</div>
-            <h3>Yapay Zekâ Analizi</h3>
-            <p>Görüntüden anlam çıkaran, sınıflandırma ve karar destek süreçlerine katkı sağlayan yapay zekâ yaklaşımı.</p>
+            <h3>Yapay Zekâ</h3>
+            <p>Veriyi analiz eden, yorumlayan ve karar destek süreçlerine katkı sağlayan akıllı yapı.</p>
           </div>
 
-          <div class="tech-card reveal">
+          <div class="card reveal">
             <div class="icon">03</div>
-            <h3>Otonom Sistem Mantığı</h3>
-            <p>Algılanan çevre verisini aksiyona dönüştüren, akıllı sistem mimarileri için planlanmış yapı.</p>
+            <h3>Drone Teknolojileri</h3>
+            <p>Hava sistemleri, uzaktan gözlem ve ileri teknoloji sahaları için güçlü bir sunum dili.</p>
           </div>
 
-          <div class="tech-card reveal">
+          <div class="card reveal">
             <div class="icon">04</div>
-            <h3>Drone Teknolojileri</h3>
-            <p>Hava araçları, saha gözlemi, haritalama ve izleme sistemleri için geliştirilebilir teknoloji altyapısı.</p>
+            <h3>Otonom Sistemler</h3>
+            <p>Algı, analiz ve aksiyon döngüsünü temsil eden geleceğe dönük dijital yapı.</p>
           </div>
         </div>
       </div>
@@ -1094,52 +912,52 @@
       <div class="container showcase">
         <div class="showcase-info reveal">
           <div class="label">Sistem Vizyonu</div>
-          <h2>Akıllı analiz için tasarlanmış premium teknoloji deneyimi.</h2>
+          <h2>Teknolojiyi güçlü gösteren modern bir dijital vitrin.</h2>
           <p>
-            Bu arayüz; görüntü işleme, yapay zekâ, drone teknolojileri ve otonom sistemleri temsil eden
-            modern bir teknoloji markası için hazırlanmıştır.
+            Bu yapı, Aygun Design diline yakın premium bir arayüz mantığıyla, teknoloji ve savunma
+            temalarını güçlü biçimde sunmak için hazırlanmıştır.
           </p>
 
           <div class="feature-list">
             <div class="feature-item">
               <i></i>
               <div>
-                <strong>Gerçek zamanlı düşünce yapısı</strong>
-                <span>Verinin hızlı işlenmesi ve karar süreçlerine aktarılması hedeflenir.</span>
+                <strong>Premium teknoloji görünümü</strong>
+                <span>Koyu zemin, neon vurgu renkleri ve modern tipografi ile güçlü ilk izlenim.</span>
               </div>
             </div>
 
             <div class="feature-item">
               <i></i>
               <div>
-                <strong>Yüksek doğruluk yaklaşımı</strong>
-                <span>Görüntü içindeki kritik nesne ve hareketlerin doğru analiz edilmesine odaklanır.</span>
+                <strong>3 boyutlu görsel etki</strong>
+                <span>Hero alanında gerçek zamanlı çalışan 3D drone objesiyle dikkat çekici sunum.</span>
               </div>
             </div>
 
             <div class="feature-item">
               <i></i>
               <div>
-                <strong>Ölçeklenebilir mimari</strong>
-                <span>Farklı sektör ve saha ihtiyaçlarına göre genişleyebilir bir teknoloji dili sunar.</span>
+                <strong>Kurumsal ve modern yapı</strong>
+                <span>Sunum, teknoloji vitrini ve marka algısını güçlendiren düzenli sistem yapısı.</span>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="dashboard reveal">
-          <div class="map-panel">
+        <div class="system-panel reveal">
+          <div class="system-map">
             <div class="route"></div>
-            <div class="map-dot"></div>
-            <div class="map-dot"></div>
-            <div class="map-dot"></div>
-            <div class="map-dot"></div>
+            <div class="map-dot one"></div>
+            <div class="map-dot two"></div>
+            <div class="map-dot three"></div>
+            <div class="map-dot four"></div>
 
             <div class="floating-card">
-              <small>Vision Analysis</small>
-              <strong>Processing</strong>
+              <small>Vision Systems</small>
+              <strong>Online</strong>
               <p style="margin-top:8px;color:rgba(245,247,250,0.62);font-size:13px;line-height:1.5;">
-                Görsel veri analizi ve akıllı karar altyapısı.
+                Drone, AI ve görüntü işleme odaklı modern teknoloji vitrini.
               </p>
             </div>
           </div>
@@ -1151,77 +969,27 @@
       <div class="container">
         <div class="section-head reveal">
           <div class="label">Kullanım Alanları</div>
-          <h2>Farklı sektörler için geliştirilebilir teknoloji altyapısı.</h2>
+          <h2>Farklı sektörlerde kullanılabilecek teknoloji yaklaşımı.</h2>
           <p>
-            Görüntü işleme ve yapay zekâ sistemleri; sahadan gelen görsel veriyi daha anlamlı,
-            daha hızlı ve daha yönetilebilir hale getirir.
+            Görüntü işleme ve drone temelli çözümler; savunmadan haritalamaya, güvenlikten saha analizine kadar
+            birçok alanda güçlü bir teknoloji dili oluşturur.
           </p>
         </div>
 
         <div class="use-grid">
           <div class="use-card reveal">
             <h3>Drone Sistemleri</h3>
-            <p>Hava görüntüsü analizi, rota yaklaşımı, saha gözlemi ve akıllı izleme senaryoları.</p>
-          </div>
-
-          <div class="use-card reveal">
-            <h3>Endüstriyel Denetim</h3>
-            <p>Üretim, tesis, ekipman ve saha kontrollerinde görüntü tabanlı analiz yaklaşımı.</p>
+            <p>Hava verisi, saha gözlemi ve ileri teknoloji kullanım senaryoları için.</p>
           </div>
 
           <div class="use-card reveal">
             <h3>Güvenlik ve İzleme</h3>
-            <p>Alan takibi, hareket algılama ve kritik bölge kontrolü için akıllı görsel sistemler.</p>
+            <p>Akıllı gözlem, hareket takibi ve kritik alan farkındalığı odaklı yapı.</p>
           </div>
 
           <div class="use-card reveal">
             <h3>Haritalama</h3>
-            <p>Drone ve görsel veri kaynaklarından elde edilen görüntülerin analiz edilmesi.</p>
-          </div>
-
-          <div class="use-card reveal">
-            <h3>Akıllı Şehirler</h3>
-            <p>Trafik, kalabalık, saha yoğunluğu ve çevresel analiz süreçlerinde kullanılabilir yapı.</p>
-          </div>
-
-          <div class="use-card reveal">
-            <h3>Tarım Teknolojileri</h3>
-            <p>Alan izleme, bitki sağlığı, bölgesel analiz ve görsel veri değerlendirme süreçleri.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="surec">
-      <div class="container">
-        <div class="section-head reveal">
-          <div class="label">Çalışma Yaklaşımı</div>
-          <h2>Fikirden teknoloji sunumuna net ve güçlü süreç.</h2>
-        </div>
-
-        <div class="process">
-          <div class="step reveal">
-            <div class="step-number">01</div>
-            <h3>Analiz</h3>
-            <p>Projenin hedefi, kullanım alanı ve teknoloji ihtiyacı netleştirilir.</p>
-          </div>
-
-          <div class="step reveal">
-            <div class="step-number">02</div>
-            <h3>Arayüz Tasarımı</h3>
-            <p>Konuya uygun, modern ve premium dijital deneyim oluşturulur.</p>
-          </div>
-
-          <div class="step reveal">
-            <div class="step-number">03</div>
-            <h3>Teknoloji Dili</h3>
-            <p>Görüntü işleme, yapay zekâ ve otonom sistem vurgusu güçlü şekilde yansıtılır.</p>
-          </div>
-
-          <div class="step reveal">
-            <div class="step-number">04</div>
-            <h3>Yayın</h3>
-            <p>Web sitesi mobil uyumlu ve hızlı şekilde yayına hazır hale getirilir.</p>
+            <p>Saha analizi ve görüntü odaklı veri yorumlamaya uygun teknoloji sunumu.</p>
           </div>
         </div>
       </div>
@@ -1230,12 +998,12 @@
     <section id="iletisim">
       <div class="container">
         <div class="cta reveal">
-          <h2>Görüntü işleme teknolojileri için güçlü bir dijital vitrin tasarlayalım.</h2>
+          <h2>Markanı teknoloji odaklı premium bir web deneyimine dönüştürelim.</h2>
           <p>
-            Yapay zekâ, drone teknolojileri ve otonom sistemler alanında çalışan bir marka için
-            modern, güvenilir ve etkileyici bir web arayüzü.
+            Aygun Design çizgisini koruyan ama daha teknolojik, daha güçlü ve daha etkileyici
+            bir web sitesi arayüzünü birlikte şekillendirebiliriz.
           </p>
-          <a href="mailto:info@example.com" class="btn btn-primary">Projeyi Başlat →</a>
+          <a href="#" class="btn btn-primary">Projeyi Başlat</a>
         </div>
       </div>
     </section>
@@ -1243,74 +1011,311 @@
 
   <footer>
     <div class="container footer-inner">
-      <span>© 2026 ISK Vision Technologies. Tüm hakları saklıdır.</span>
-      <span>AI • Computer Vision • Autonomous Systems</span>
+      <span>© 2026 AYGUN DESIGN. Tüm hakları saklıdır.</span>
+      <span>Vision • Drone • Autonomous Systems</span>
     </div>
   </footer>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script>
-    const canvas = document.getElementById("spaceCanvas");
-    const ctx = canvas.getContext("2d");
+    const canvas = document.getElementById("droneCanvas");
 
-    let width, height, particles;
+    const scene = new THREE.Scene();
+    scene.fog = new THREE.Fog(0x03040A, 16, 42);
 
-    function resizeCanvas(){
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
+    const camera = new THREE.PerspectiveCamera(
+      42,
+      canvas.clientWidth / canvas.clientHeight,
+      0.1,
+      1000
+    );
+    camera.position.set(0, 1.6, 10);
 
-      particles = Array.from({length: Math.min(90, Math.floor(width / 18))}, () => ({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        vx: (Math.random() - 0.5) * 0.22,
-        vy: (Math.random() - 0.5) * 0.22,
-        r: Math.random() * 1.4 + 0.4
-      }));
+    const renderer = new THREE.WebGLRenderer({
+      canvas,
+      antialias: true,
+      alpha: true
+    });
+
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setSize(canvas.clientWidth, canvas.clientHeight, false);
+
+    // Işıklar
+    const ambient = new THREE.AmbientLight(0xffffff, 1.0);
+    scene.add(ambient);
+
+    const cyanLight = new THREE.PointLight(0x00f5ff, 2.1, 50);
+    cyanLight.position.set(5, 4, 6);
+    scene.add(cyanLight);
+
+    const purpleLight = new THREE.PointLight(0x6c3bff, 1.5, 50);
+    purpleLight.position.set(-5, 2, 5);
+    scene.add(purpleLight);
+
+    const goldLight = new THREE.PointLight(0xffd34d, 1.2, 50);
+    goldLight.position.set(0, -2, 7);
+    scene.add(goldLight);
+
+    // Drone grup
+    const droneGroup = new THREE.Group();
+    scene.add(droneGroup);
+
+    // Gövde
+    const bodyMaterial = new THREE.MeshStandardMaterial({
+      color: 0x0f1728,
+      metalness: 0.8,
+      roughness: 0.25
+    });
+
+    const cyanMaterial = new THREE.MeshStandardMaterial({
+      color: 0x00f5ff,
+      emissive: 0x00a8b0,
+      emissiveIntensity: 0.35,
+      metalness: 0.65,
+      roughness: 0.28
+    });
+
+    const whiteMaterial = new THREE.MeshStandardMaterial({
+      color: 0xeef7ff,
+      metalness: 0.55,
+      roughness: 0.32
+    });
+
+    const body = new THREE.Mesh(
+      new THREE.BoxGeometry(2.2, 0.65, 1.35),
+      bodyMaterial
+    );
+    droneGroup.add(body);
+
+    const topShell = new THREE.Mesh(
+      new THREE.BoxGeometry(1.4, 0.28, 0.9),
+      cyanMaterial
+    );
+    topShell.position.y = 0.42;
+    droneGroup.add(topShell);
+
+    const frontGlass = new THREE.Mesh(
+      new THREE.BoxGeometry(0.9, 0.28, 0.22),
+      whiteMaterial
+    );
+    frontGlass.position.set(0, 0.08, 0.78);
+    droneGroup.add(frontGlass);
+
+    // Kollar
+    const armGeometry = new THREE.CylinderGeometry(0.08, 0.08, 2.6, 18);
+    const arm1 = new THREE.Mesh(armGeometry, bodyMaterial);
+    arm1.rotation.z = Math.PI / 2;
+    droneGroup.add(arm1);
+
+    const arm2 = new THREE.Mesh(armGeometry, bodyMaterial);
+    arm2.rotation.x = Math.PI / 2;
+    droneGroup.add(arm2);
+
+    // Motorlar
+    const motorMaterial = new THREE.MeshStandardMaterial({
+      color: 0x101827,
+      metalness: 0.85,
+      roughness: 0.22
+    });
+
+    const motors = [];
+    const propellers = [];
+
+    const motorPositions = [
+      [ 1.45, 0,  0],
+      [-1.45, 0,  0],
+      [ 0, 0,  1.45],
+      [ 0, 0, -1.45]
+    ];
+
+    motorPositions.forEach(pos => {
+      const motor = new THREE.Mesh(
+        new THREECylinderGeometrySafe(0.24, 0.24, 0.36, 24),
+        motorMaterial
+      );
+      motor.position.set(pos[0], 0.12, pos[2]);
+      motors.push(motor);
+      droneGroup.add(motor);
+
+      const propGroup = new THREE.Group();
+      propGroup.position.set(pos[0], 0.34, pos[2]);
+
+      const hub = new THREE.Mesh(
+        new THREECylinderGeometrySafe(0.08, 0.08, 0.05, 16),
+        cyanMaterial
+      );
+      propGroup.add(hub);
+
+      const bladeMaterial = new THREE.MeshStandardMaterial({
+        color: 0xbdfcff,
+        emissive: 0x00f5ff,
+        emissiveIntensity: 0.12,
+        transparent: true,
+        opacity: 0.92,
+        metalness: 0.25,
+        roughness: 0.3
+      });
+
+      const blade1 = new THREE.Mesh(
+        new THREE.BoxGeometry(0.95, 0.03, 0.12),
+        bladeMaterial
+      );
+      propGroup.add(blade1);
+
+      const blade2 = new THREE.Mesh(
+        new THREE.BoxGeometry(0.95, 0.03, 0.12),
+        bladeMaterial
+      );
+      blade2.rotation.y = Math.PI / 2;
+      propGroup.add(blade2);
+
+      propellers.push(propGroup);
+      droneGroup.add(propGroup);
+    });
+
+    // Alt bacaklar
+    const legMaterial = new THREE.MeshStandardMaterial({
+      color: 0x96a3b8,
+      metalness: 0.6,
+      roughness: 0.35
+    });
+
+    const leg1 = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.035, 0.035, 1.2, 12),
+      legMaterial
+    );
+    leg1.position.set(0.7, -0.75, 0.45);
+    leg1.rotation.z = 0.22;
+    droneGroup.add(leg1);
+
+    const leg2 = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.035, 0.035, 1.2, 12),
+      legMaterial
+    );
+    leg2.position.set(-0.7, -0.75, 0.45);
+    leg2.rotation.z = -0.22;
+    droneGroup.add(leg2);
+
+    const skid = new THREE.Mesh(
+      new THREE.TorusGeometry(1.05, 0.03, 12, 90, Math.PI),
+      legMaterial
+    );
+    skid.position.set(0, -1.3, 0.45);
+    skid.rotation.x = Math.PI / 2;
+    droneGroup.add(skid);
+
+    // Arka glow halkası
+    const glowRing = new THREE.Mesh(
+      new THREE.TorusGeometry(3.1, 0.03, 16, 120),
+      new THREE.MeshBasicMaterial({
+        color: 0x00f5ff,
+        transparent: true,
+        opacity: 0.22
+      })
+    );
+    glowRing.rotation.x = 1.12;
+    glowRing.position.z = -0.7;
+    scene.add(glowRing);
+
+    const glowRing2 = new THREE.Mesh(
+      new THREE.TorusGeometry(4.2, 0.02, 16, 140),
+      new THREE.MeshBasicMaterial({
+        color: 0x6c3bff,
+        transparent: true,
+        opacity: 0.14
+      })
+    );
+    glowRing2.rotation.y = 0.35;
+    glowRing2.rotation.x = 1.35;
+    glowRing2.position.z = -1.4;
+    scene.add(glowRing2);
+
+    // Particles
+    const particleCount = 180;
+    const positions = new Float32Array(particleCount * 3);
+
+    for(let i=0;i<particleCount;i++){
+      positions[i*3] = (Math.random() - 0.5) * 20;
+      positions[i*3 + 1] = (Math.random() - 0.5) * 14;
+      positions[i*3 + 2] = (Math.random() - 0.5) * 18 - 4;
     }
 
-    function draw(){
-      ctx.clearRect(0,0,width,height);
+    const particleGeo = new THREE.BufferGeometry();
+    particleGeo.setAttribute("position", new THREE.BufferAttribute(positions, 3));
 
-      for(const p of particles){
-        p.x += p.vx;
-        p.y += p.vy;
+    const particleMat = new THREE.PointsMaterial({
+      color: 0x00f5ff,
+      size: 0.04,
+      transparent: true,
+      opacity: 0.42
+    });
 
-        if(p.x < 0 || p.x > width) p.vx *= -1;
-        if(p.y < 0 || p.y > height) p.vy *= -1;
+    const particles = new THREE.Points(particleGeo, particleMat);
+    scene.add(particles);
 
-        ctx.beginPath();
-        ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-        ctx.fillStyle = "rgba(0,245,255,0.34)";
-        ctx.fill();
-      }
+    // Mouse parallax
+    const mouse = { x:0, y:0, tx:0, ty:0 };
+    window.addEventListener("mousemove", (e)=>{
+      mouse.tx = (e.clientX / window.innerWidth - 0.5) * 2;
+      mouse.ty = (e.clientY / window.innerHeight - 0.5) * 2;
+    });
 
-      for(let i=0;i<particles.length;i++){
-        for(let j=i+1;j<particles.length;j++){
-          const a = particles[i];
-          const b = particles[j];
-          const dx = a.x - b.x;
-          const dy = a.y - b.y;
-          const d = Math.sqrt(dx*dx + dy*dy);
-
-          if(d < 130){
-            ctx.beginPath();
-            ctx.moveTo(a.x,a.y);
-            ctx.lineTo(b.x,b.y);
-            ctx.strokeStyle = `rgba(0,245,255,${(1 - d / 130) * 0.10})`;
-            ctx.lineWidth = 1;
-            ctx.stroke();
-          }
-        }
-      }
-
-      requestAnimationFrame(draw);
+    // Yardımcı güvenli silindir oluşturucu
+    function new THREECylinderGeometrySafe(rt, rb, h, rs){
+      return new THREE.CylinderGeometry(rt, rb, h, rs);
     }
 
-    window.addEventListener("resize", resizeCanvas);
-    resizeCanvas();
-    draw();
+    // Animasyon
+    const clock = new THREE.Clock();
 
+    function animate(){
+      requestAnimationFrame(animate);
+      const t = clock.getElapsedTime();
+
+      mouse.x += (mouse.tx - mouse.x) * 0.03;
+      mouse.y += (mouse.ty - mouse.y) * 0.03;
+
+      // İstediğin ana hareket:
+      // yatay eksende 360 derece dönüş = Y axis etrafında orta hız
+      droneGroup.rotation.y += 0.012;
+
+      // hafif premium hareket
+      droneGroup.rotation.x = Math.sin(t * 0.8) * 0.07 + mouse.y * 0.10;
+      droneGroup.rotation.z = Math.cos(t * 0.65) * 0.04 + mouse.x * 0.08;
+      droneGroup.position.y = Math.sin(t * 1.6) * 0.18;
+
+      // pervane dönüşleri
+      propellers.forEach((prop)=>{
+        prop.rotation.y += 0.42;
+      });
+
+      // arka halkalar
+      glowRing.rotation.z += 0.003;
+      glowRing2.rotation.z -= 0.002;
+
+      particles.rotation.y += 0.0009;
+
+      camera.position.x += ((mouse.x * 0.7) - camera.position.x) * 0.03;
+      camera.position.y += (((-mouse.y * 0.3) + 1.6) - camera.position.y) * 0.03;
+      camera.lookAt(0, 0.2, 0);
+
+      renderer.render(scene, camera);
+    }
+
+    function resizeRenderer(){
+      const w = canvas.clientWidth;
+      const h = canvas.clientHeight;
+      renderer.setSize(w, h, false);
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+    }
+
+    window.addEventListener("resize", resizeRenderer);
+    resizeRenderer();
+    animate();
+
+    // reveal
     const reveals = document.querySelectorAll(".reveal");
-
     const observer = new IntersectionObserver((entries)=>{
       entries.forEach(entry=>{
         if(entry.isIntersecting){

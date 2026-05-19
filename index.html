@@ -321,7 +321,7 @@
 
   <footer>© 2026 AYGUN DESIGN • Vision Technologies</footer>
 
-  <script>
+ <script>
   /* CUSTOM CURSOR */
   const cursor = document.querySelector(".cursor");
   document.addEventListener("mousemove", (e) => {
@@ -355,12 +355,12 @@
     ease: "power3.out"
   });
 
-  /* THREE JS BACKGROUND */
+  /* THREE JS */
   const scene = new THREE.Scene();
   scene.fog = new THREE.Fog(0x03040A, 14, 42);
 
   const camera = new THREE.PerspectiveCamera(
-    58,
+    56,
     window.innerWidth / window.innerHeight,
     0.1,
     1000
@@ -376,247 +376,270 @@
   renderer.setClearColor(0x03040A, 0);
   document.body.appendChild(renderer.domElement);
 
-  camera.position.set(0, 1.4, 15);
+  camera.position.set(0, 2.8, 11.8);
 
   /* LIGHTS */
   const ambient = new THREE.AmbientLight(0xffffff, 0.9);
   scene.add(ambient);
 
-  const keyLight = new THREE.PointLight(0x00f5ff, 2.4, 55);
-  keyLight.position.set(6, 5, 8);
+  const keyLight = new THREE.PointLight(0x00f5ff, 2.2, 60);
+  keyLight.position.set(5.5, 5, 8);
   scene.add(keyLight);
 
-  const rimLight = new THREE.PointLight(0x6c3bff, 1.7, 60);
-  rimLight.position.set(-7, 3, 7);
+  const rimLight = new THREE.PointLight(0x6c3bff, 1.3, 60);
+  rimLight.position.set(-6, 3, 7);
   scene.add(rimLight);
 
-  const softWhite = new THREE.PointLight(0xffffff, 1.2, 50);
-  softWhite.position.set(0, -2, 10);
-  scene.add(softWhite);
+  const fillLight = new THREE.PointLight(0xffffff, 0.9, 50);
+  fillLight.position.set(0, -1.5, 10);
+  scene.add(fillLight);
 
-  const underGlow = new THREE.PointLight(0x00f5ff, 0.8, 40);
-  underGlow.position.set(0, -4, 5);
+  const underGlow = new THREE.PointLight(0x00f5ff, 0.55, 35);
+  underGlow.position.set(0, -3, 4);
   scene.add(underGlow);
 
   /* MATERIALS */
   const matteBlack = new THREE.MeshStandardMaterial({
-    color: 0x0a101b,
-    metalness: 0.92,
-    roughness: 0.32
+    color: 0x0a1018,
+    metalness: 0.95,
+    roughness: 0.3
   });
 
   const graphite = new THREE.MeshStandardMaterial({
-    color: 0x111b2c,
+    color: 0x121c2b,
     metalness: 0.86,
-    roughness: 0.26
+    roughness: 0.24
   });
 
   const darkPanel = new THREE.MeshStandardMaterial({
-    color: 0x05080f,
-    metalness: 0.95,
+    color: 0x060b12,
+    metalness: 0.92,
     roughness: 0.22
   });
 
   const cyanGlow = new THREE.MeshStandardMaterial({
     color: 0x00f5ff,
     emissive: 0x00aabb,
-    emissiveIntensity: 0.55,
+    emissiveIntensity: 0.48,
     metalness: 0.55,
-    roughness: 0.2
+    roughness: 0.18
   });
 
   const glass = new THREE.MeshStandardMaterial({
-    color: 0xb8f8ff,
-    emissive: 0x003a44,
-    emissiveIntensity: 0.35,
-    metalness: 0.25,
-    roughness: 0.12,
+    color: 0xcffbff,
+    emissive: 0x003944,
+    emissiveIntensity: 0.28,
+    metalness: 0.2,
+    roughness: 0.08,
     transparent: true,
-    opacity: 0.88
+    opacity: 0.9
   });
 
   const propMat = new THREE.MeshStandardMaterial({
-    color: 0xd9fbff,
+    color: 0xe0fbff,
     emissive: 0x00f5ff,
-    emissiveIntensity: 0.18,
+    emissiveIntensity: 0.14,
     transparent: true,
-    opacity: 0.78,
-    metalness: 0.35,
-    roughness: 0.26
+    opacity: 0.76,
+    metalness: 0.32,
+    roughness: 0.28
   });
 
-  /* MAIN DRONE GROUP */
+  const skidMaterial = new THREE.MeshStandardMaterial({
+    color: 0x8b97aa,
+    metalness: 0.62,
+    roughness: 0.36
+  });
+
+  /* MAIN GROUP */
   const droneGroup = new THREE.Group();
   droneGroup.position.set(0, 0.15, 0);
-  droneGroup.scale.set(1.12, 1.12, 1.12);
+  droneGroup.scale.set(1.08, 1.08, 1.08);
   scene.add(droneGroup);
 
-  /* BODY - ANGULAR MILITARY FORM */
-  const mainBody = new THREE.Mesh(
-    new THREE.BoxGeometry(2.65, 0.58, 1.55),
+  /* BODY - DAHA ESTETİK VE PROFESYONEL */
+  const coreBody = new THREE.Mesh(
+    new THREE.CylinderGeometry(1.02, 1.12, 0.42, 8),
     matteBlack
   );
-  mainBody.position.y = 0.03;
-  droneGroup.add(mainBody);
+  coreBody.rotation.y = Math.PI / 8;
+  droneGroup.add(coreBody);
 
-  const upperArmor = new THREE.Mesh(
-    new THREE.BoxGeometry(1.75, 0.34, 1.02),
+  const topDeck = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.72, 0.84, 0.22, 8),
     graphite
   );
-  upperArmor.position.y = 0.46;
-  upperArmor.position.z = -0.05;
-  droneGroup.add(upperArmor);
+  topDeck.position.y = 0.3;
+  topDeck.rotation.y = Math.PI / 8;
+  droneGroup.add(topDeck);
 
-  const lowerArmor = new THREE.Mesh(
-    new THREE.BoxGeometry(1.95, 0.24, 1.12),
+  const lowerDeck = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.82, 0.92, 0.18, 8),
     darkPanel
   );
-  lowerArmor.position.y = -0.36;
-  lowerArmor.position.z = -0.04;
-  droneGroup.add(lowerArmor);
+  lowerDeck.position.y = -0.28;
+  lowerDeck.rotation.y = Math.PI / 8;
+  droneGroup.add(lowerDeck);
 
-  /* NOSE SENSOR */
+  /* SIDE ARMOR PANELS */
+  const sidePanelL = new THREE.Mesh(
+    new THREE.BoxGeometry(1.15, 0.18, 0.54),
+    graphite
+  );
+  sidePanelL.position.set(-0.92, 0.04, 0);
+  sidePanelL.rotation.z = -0.18;
+  droneGroup.add(sidePanelL);
+
+  const sidePanelR = new THREE.Mesh(
+    new THREE.BoxGeometry(1.15, 0.18, 0.54),
+    graphite
+  );
+  sidePanelR.position.set(0.92, 0.04, 0);
+  sidePanelR.rotation.z = 0.18;
+  droneGroup.add(sidePanelR);
+
+  /* NOSE */
   const nose = new THREE.Mesh(
-    new THREE.ConeGeometry(0.48, 0.78, 4),
+    new THREE.ConeGeometry(0.36, 0.88, 4),
     graphite
   );
   nose.rotation.x = Math.PI / 2;
   nose.rotation.z = Math.PI / 4;
-  nose.position.z = 1.14;
-  nose.position.y = 0.04;
+  nose.position.set(0, 0.03, 1.05);
   droneGroup.add(nose);
 
-  const frontSensor = new THREE.Mesh(
-    new THREE.BoxGeometry(0.76, 0.24, 0.13),
+  const frontGlass = new THREE.Mesh(
+    new THREE.BoxGeometry(0.68, 0.14, 0.1),
     glass
   );
-  frontSensor.position.set(0, 0.05, 1.42);
-  droneGroup.add(frontSensor);
+  frontGlass.position.set(0, 0.1, 1.28);
+  droneGroup.add(frontGlass);
 
-  /* CAMERA GIMBAL */
-  const gimbalArm = new THREE.Mesh(
-    new THREE.CylinderGeometry(0.045, 0.045, 0.42, 14),
+  const frontGlow = new THREE.Mesh(
+    new THREE.BoxGeometry(0.42, 0.06, 0.08),
+    cyanGlow
+  );
+  frontGlow.position.set(0, -0.03, 1.18);
+  droneGroup.add(frontGlow);
+
+  /* CAMERA / SENSOR */
+  const cameraMount = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.04, 0.04, 0.24, 12),
     graphite
   );
-  gimbalArm.rotation.x = Math.PI / 2;
-  gimbalArm.position.set(0, -0.62, 0.76);
-  droneGroup.add(gimbalArm);
+  cameraMount.position.set(0, -0.45, 0.62);
+  droneGroup.add(cameraMount);
 
-  const cameraHousing = new THREE.Mesh(
-    new THREE.SphereGeometry(0.28, 24, 18),
+  const cameraBall = new THREE.Mesh(
+    new THREE.SphereGeometry(0.22, 20, 16),
     darkPanel
   );
-  cameraHousing.scale.set(1, 0.75, 1);
-  cameraHousing.position.set(0, -0.78, 0.95);
-  droneGroup.add(cameraHousing);
+  cameraBall.scale.set(1, 0.8, 1);
+  cameraBall.position.set(0, -0.63, 0.72);
+  droneGroup.add(cameraBall);
 
   const cameraLens = new THREE.Mesh(
-    new THREE.CylinderGeometry(0.13, 0.13, 0.06, 24),
+    new THREE.CylinderGeometry(0.1, 0.1, 0.06, 24),
     glass
   );
   cameraLens.rotation.x = Math.PI / 2;
-  cameraLens.position.set(0, -0.78, 1.22);
+  cameraLens.position.set(0, -0.63, 0.94);
   droneGroup.add(cameraLens);
 
-  /* SIDE ARM STRUCTURE */
-  const armMaterial = graphite;
-
-  const armX = new THREE.Mesh(
-    new THREE.BoxGeometry(4.35, 0.16, 0.22),
-    armMaterial
+  /* REAR FINS */
+  const finL = new THREE.Mesh(
+    new THREE.BoxGeometry(0.1, 0.45, 0.26),
+    graphite
   );
-  armX.position.y = 0.12;
-  droneGroup.add(armX);
+  finL.position.set(-0.38, 0.42, -0.8);
+  finL.rotation.z = 0.14;
+  droneGroup.add(finL);
 
-  const armZ = new THREE.Mesh(
-    new THREE.BoxGeometry(0.22, 0.16, 3.75),
-    armMaterial
+  const finR = new THREE.Mesh(
+    new THREE.BoxGeometry(0.1, 0.45, 0.26),
+    graphite
   );
-  armZ.position.y = 0.12;
-  droneGroup.add(armZ);
+  finR.position.set(0.38, 0.42, -0.8);
+  finR.rotation.z = -0.14;
+  droneGroup.add(finR);
 
-  /* DIAGONAL STRENGTH BARS */
-  function createBar(x, z, rotY) {
-    const bar = new THREE.Mesh(
-      new THREE.BoxGeometry(1.75, 0.08, 0.12),
+  /* ARM + MOTOR SYSTEM */
+  const propellers = [];
+  const glowDots = [];
+
+  function createArm(angle) {
+    const armGroup = new THREE.Group();
+    armGroup.rotation.y = angle;
+
+    const arm = new THREE.Mesh(
+      new THREE.BoxGeometry(2.2, 0.12, 0.16),
+      graphite
+    );
+    arm.position.x = 1.06;
+    arm.position.y = 0.1;
+    armGroup.add(arm);
+
+    const support = new THREE.Mesh(
+      new THREE.BoxGeometry(0.9, 0.08, 0.1),
       darkPanel
     );
-    bar.position.set(x, -0.02, z);
-    bar.rotation.y = rotY;
-    droneGroup.add(bar);
-    return bar;
-  }
+    support.position.set(0.52, -0.06, 0);
+    support.rotation.z = -0.26;
+    armGroup.add(support);
 
-  createBar(0.86, 0.78, -0.72);
-  createBar(-0.86, 0.78, 0.72);
-  createBar(0.86, -0.78, 0.72);
-  createBar(-0.86, -0.78, -0.72);
-
-  /* MOTORS + PROPELLERS */
-  const propellers = [];
-  const motorPositions = [
-    [ 2.22, 0.12,  1.82],
-    [-2.22, 0.12,  1.82],
-    [ 2.22, 0.12, -1.82],
-    [-2.22, 0.12, -1.82]
-  ];
-
-  motorPositions.forEach((pos, index) => {
     const motorGroup = new THREE.Group();
-    motorGroup.position.set(pos[0], pos[1], pos[2]);
-    droneGroup.add(motorGroup);
+    motorGroup.position.set(2.12, 0.1, 0);
 
     const motorBase = new THREE.Mesh(
-      new THREE.CylinderGeometry(0.33, 0.33, 0.22, 32),
+      new THREE.CylinderGeometry(0.26, 0.26, 0.22, 28),
       darkPanel
     );
-    motorBase.rotation.x = Math.PI / 2;
     motorGroup.add(motorBase);
 
     const motorTop = new THREE.Mesh(
-      new THREE.CylinderGeometry(0.22, 0.25, 0.18, 32),
+      new THREE.CylinderGeometry(0.18, 0.2, 0.16, 24),
       graphite
     );
-    motorTop.position.y = 0.17;
-    motorTop.rotation.x = Math.PI / 2;
+    motorTop.position.y = 0.18;
     motorGroup.add(motorTop);
 
     const glowDot = new THREE.Mesh(
-      new THREE.SphereGeometry(0.055, 12, 12),
+      new THREE.SphereGeometry(0.05, 12, 12),
       cyanGlow
     );
     glowDot.position.set(0, 0.28, 0);
     motorGroup.add(glowDot);
+    glowDots.push(glowDot);
 
     const propGroup = new THREE.Group();
     propGroup.position.y = 0.32;
 
     const hub = new THREE.Mesh(
-      new THREE.CylinderGeometry(0.08, 0.08, 0.045, 16),
+      new THREE.CylinderGeometry(0.07, 0.07, 0.05, 14),
       cyanGlow
     );
     hub.rotation.x = Math.PI / 2;
     propGroup.add(hub);
 
-    const bladeA = new THREE.Mesh(
-      new THREE.BoxGeometry(1.18, 0.035, 0.11),
+    const blade1 = new THREE.Mesh(
+      new THREE.BoxGeometry(1.02, 0.03, 0.1),
       propMat
     );
-    propGroup.add(bladeA);
+    propGroup.add(blade1);
 
-    const bladeB = new THREE.Mesh(
-      new THREE.BoxGeometry(1.18, 0.035, 0.11),
+    const blade2 = new THREE.Mesh(
+      new THREE.BoxGeometry(1.02, 0.03, 0.1),
       propMat
     );
-    bladeB.rotation.y = Math.PI / 2;
-    propGroup.add(bladeB);
+    blade2.rotation.y = Math.PI / 2;
+    propGroup.add(blade2);
 
     const blurDisc = new THREE.Mesh(
-      new THREE.CylinderGeometry(0.67, 0.67, 0.012, 40),
+      new THREE.CylinderGeometry(0.58, 0.58, 0.012, 36),
       new THREE.MeshBasicMaterial({
         color: 0x00f5ff,
         transparent: true,
-        opacity: 0.055,
+        opacity: 0.05,
         side: THREE.DoubleSide
       })
     );
@@ -626,117 +649,74 @@
 
     motorGroup.add(propGroup);
     propellers.push(propGroup);
-  });
 
-  /* MILITARY STYLE FINS */
-  const fin1 = new THREE.Mesh(
-    new THREE.BoxGeometry(0.12, 0.68, 0.38),
-    graphite
-  );
-  fin1.position.set(0.58, 0.35, -0.96);
-  fin1.rotation.z = -0.22;
-  droneGroup.add(fin1);
+    armGroup.add(motorGroup);
+    droneGroup.add(armGroup);
+  }
 
-  const fin2 = new THREE.Mesh(
-    new THREE.BoxGeometry(0.12, 0.68, 0.38),
-    graphite
-  );
-  fin2.position.set(-0.58, 0.35, -0.96);
-  fin2.rotation.z = 0.22;
-  droneGroup.add(fin2);
+  createArm(Math.PI / 4);
+  createArm(3 * Math.PI / 4);
+  createArm(-Math.PI / 4);
+  createArm(-3 * Math.PI / 4);
 
   /* LANDING SKIDS */
-  const skidMaterial = new THREE.MeshStandardMaterial({
-    color: 0x7d8aa0,
-    metalness: 0.65,
-    roughness: 0.38
-  });
-
-  function createSkid(x) {
+  function createSkidRail(x) {
     const legFront = new THREE.Mesh(
-      new THREE.CylinderGeometry(0.035, 0.035, 0.95, 12),
+      new THREE.CylinderGeometry(0.03, 0.03, 0.86, 12),
       skidMaterial
     );
-    legFront.position.set(x, -0.72, 0.52);
-    legFront.rotation.z = x > 0 ? 0.18 : -0.18;
+    legFront.position.set(x, -0.62, 0.45);
+    legFront.rotation.z = x > 0 ? 0.16 : -0.16;
     droneGroup.add(legFront);
 
     const legBack = new THREE.Mesh(
-      new THREE.CylinderGeometry(0.035, 0.035, 0.95, 12),
+      new THREE.CylinderGeometry(0.03, 0.03, 0.86, 12),
       skidMaterial
     );
-    legBack.position.set(x, -0.72, -0.52);
-    legBack.rotation.z = x > 0 ? 0.18 : -0.18;
+    legBack.position.set(x, -0.62, -0.45);
+    legBack.rotation.z = x > 0 ? 0.16 : -0.16;
     droneGroup.add(legBack);
 
-    const skid = new THREE.Mesh(
-      new THREE.CylinderGeometry(0.035, 0.035, 1.55, 12),
+    const rail = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.03, 0.03, 1.28, 12),
       skidMaterial
     );
-    skid.position.set(x, -1.14, 0);
-    skid.rotation.x = Math.PI / 2;
-    droneGroup.add(skid);
+    rail.position.set(x, -1.0, 0);
+    rail.rotation.x = Math.PI / 2;
+    droneGroup.add(rail);
   }
 
-  createSkid(0.78);
-  createSkid(-0.78);
+  createSkidRail(0.55);
+  createSkidRail(-0.55);
 
-  /* CINEMATIC BACK LIGHT SHAPES */
-  const ring1 = new THREE.Mesh(
-    new THREE.TorusGeometry(4.0, 0.025, 12, 130),
-    new THREE.MeshBasicMaterial({
-      color: 0x00F5FF,
-      transparent: true,
-      opacity: 0.14
-    })
-  );
-  ring1.rotation.x = 1.15;
-  ring1.rotation.y = 0.18;
-  ring1.position.z = -1.25;
-  scene.add(ring1);
-
-  const ring2 = new THREE.Mesh(
-    new THREE.TorusGeometry(5.6, 0.018, 12, 140),
-    new THREE.MeshBasicMaterial({
-      color: 0x6C3BFF,
-      transparent: true,
-      opacity: 0.10
-    })
-  );
-  ring2.rotation.x = 1.35;
-  ring2.rotation.y = -0.32;
-  ring2.position.z = -2.1;
-  scene.add(ring2);
-
-  function createLightSlash(width, height, color, opacity, x, y, z, rotZ) {
-    const slash = new THREE.Mesh(
-      new THREE.PlaneGeometry(width, height),
+  /* ARKA PROFESYONEL HALKALAR */
+  function createRing(radius, tube, color, opacity, rotX, rotY, rotZ, z) {
+    const ring = new THREE.Mesh(
+      new THREE.TorusGeometry(radius, tube, 16, 140),
       new THREE.MeshBasicMaterial({
-        color,
+        color: color,
         transparent: true,
-        opacity,
-        side: THREE.DoubleSide,
-        blending: THREE.AdditiveBlending,
-        depthWrite: false
+        opacity: opacity
       })
     );
-    slash.position.set(x, y, z);
-    slash.rotation.z = rotZ;
-    scene.add(slash);
-    return slash;
+    ring.rotation.set(rotX, rotY, rotZ);
+    ring.position.z = z;
+    scene.add(ring);
+    return ring;
   }
 
-  const slash1 = createLightSlash(0.08, 7.8, 0x00f5ff, 0.10, -3.5, 0.4, -1.2, -0.58);
-  const slash2 = createLightSlash(0.05, 6.2, 0xffffff, 0.055, 3.2, -0.2, -1.4, 0.62);
-  const slash3 = createLightSlash(0.05, 5.4, 0x6c3bff, 0.07, 1.2, 1.5, -1.8, 0.18);
+  const ring1 = createRing(3.4, 0.025, 0x00f5ff, 0.16, 1.16, 0.22, 0.0, -1.0);
+  const ring2 = createRing(4.2, 0.018, 0x6c3bff, 0.11, 1.34, -0.22, 0.1, -1.55);
+  const ring3 = createRing(5.0, 0.016, 0xffffff, 0.07, 1.24, 0.12, -0.15, -2.0);
+  const ring4 = createRing(5.8, 0.012, 0x00f5ff, 0.06, 1.42, -0.18, 0.22, -2.3);
 
   /* PARTICLES */
-  const particleCount = 160;
+  const particleCount = 130;
   const positions = new Float32Array(particleCount * 3);
 
   for (let i = 0; i < particleCount; i++) {
-    positions[i * 3] = (Math.random() - 0.5) * 24;
-    positions[i * 3 + 1] = (Math.random() - 0.5) * 14;
+    positions[i * 3] = (Math.random() - 0.5) * 22;
+    positions[i * 3 + 1] = (Math.random() - 0.5) * 13;
     positions[i * 3 + 2] = (Math.random() - 0.5) * 18 - 2;
   }
 
@@ -744,10 +724,10 @@
   particleGeo.setAttribute("position", new THREE.BufferAttribute(positions, 3));
 
   const particleMat = new THREE.PointsMaterial({
-    color: 0x00F5FF,
-    size: 0.035,
+    color: 0x00f5ff,
+    size: 0.032,
     transparent: true,
-    opacity: 0.30
+    opacity: 0.24
   });
 
   const particles = new THREE.Points(particleGeo, particleMat);
@@ -761,8 +741,8 @@
     mouse.ty = (e.clientY / window.innerHeight - 0.5) * 2;
   });
 
-  /* DEFAULT ANGLED PROFESSIONAL VIEW */
-  droneGroup.rotation.x = -0.12;
+  /* BAŞLANGIÇ AÇISI - BİRAZ DAHA YUKARIDAN */
+  droneGroup.rotation.x = -0.34;
   droneGroup.rotation.z = 0.06;
 
   /* ANIMATION */
@@ -775,37 +755,39 @@
     mouse.x += (mouse.tx - mouse.x) * 0.03;
     mouse.y += (mouse.ty - mouse.y) * 0.03;
 
-    /* ANA İSTEK: YATAY EKSENDE 360 DERECE ORTA HIZ */
+    /* ANA DÖNÜŞ */
     droneGroup.rotation.y += 0.0105;
 
-    /* PROFESYONEL HAFİF EĞİK AÇI */
-    droneGroup.rotation.x = -0.12 + Math.sin(t * 0.75) * 0.035 + mouse.y * 0.045;
-    droneGroup.rotation.z = 0.06 + Math.cos(t * 0.55) * 0.025 + mouse.x * 0.035;
-    droneGroup.position.y = 0.1 + Math.sin(t * 1.35) * 0.13;
+    /* YUKARIDAN PROFESYONEL BAKIŞ */
+    droneGroup.rotation.x = -0.34 + Math.sin(t * 0.65) * 0.025 + mouse.y * 0.035;
+    droneGroup.rotation.z = 0.06 + Math.cos(t * 0.45) * 0.018 + mouse.x * 0.025;
+    droneGroup.position.y = 0.12 + Math.sin(t * 1.25) * 0.08;
 
     propellers.forEach((prop, i) => {
       prop.rotation.y += i % 2 === 0 ? 0.48 : -0.48;
     });
 
-    ring1.rotation.z += 0.0022;
-    ring2.rotation.z -= 0.0014;
+    glowDots.forEach((dot, i) => {
+      dot.material.emissiveIntensity = 0.35 + (Math.sin(t * 2 + i) + 1) * 0.08;
+    });
 
-    slash1.position.x = -3.5 + Math.sin(t * 0.85) * 0.28;
-    slash2.position.x = 3.2 + Math.cos(t * 0.65) * 0.22;
-    slash3.material.opacity = 0.05 + (Math.sin(t * 1.4) + 1) * 0.025;
+    ring1.rotation.z += 0.0018;
+    ring2.rotation.z -= 0.0012;
+    ring3.rotation.z += 0.0008;
+    ring4.rotation.z -= 0.0006;
 
-    particles.rotation.y += 0.0007;
+    particles.rotation.y += 0.00055;
 
-    camera.position.x += ((mouse.x * 0.38) - camera.position.x) * 0.025;
-    camera.position.y += (((-mouse.y * 0.16) + 1.4) - camera.position.y) * 0.025;
-    camera.lookAt(0, 0.15, 0);
+    camera.position.x += ((mouse.x * 0.28) - camera.position.x) * 0.02;
+    camera.position.y += (((-mouse.y * 0.12) + 2.8) - camera.position.y) * 0.02;
+    camera.lookAt(0, 0.12, 0);
 
     renderer.render(scene, camera);
   }
 
   animate();
 
-  /* RESPONSIVE */
+  /* RESIZE */
   window.addEventListener("resize", () => {
     renderer.setSize(window.innerWidth, window.innerHeight);
     camera.aspect = window.innerWidth / window.innerHeight;

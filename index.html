@@ -847,6 +847,96 @@
     height: 320px;
   }
 }
+ .project-info-panel{
+  min-height: 610px;
+  border-radius: 32px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgba(0,245,255,0.18);
+  background:
+    radial-gradient(circle at 25% 20%, rgba(0,245,255,0.12), transparent 34%),
+    radial-gradient(circle at 80% 75%, rgba(108,59,255,0.15), transparent 32%),
+    rgba(4,10,22,0.76);
+  backdrop-filter: blur(18px);
+  box-shadow:
+    0 35px 100px rgba(0,0,0,0.36),
+    inset 0 1px 0 rgba(255,255,255,0.06);
+  padding: 0;
+}
+
+.project-info-panel::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(rgba(0,245,255,0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,245,255,0.045) 1px, transparent 1px);
+  background-size: 42px 42px;
+  opacity: 0.55;
+  pointer-events:none;
+}
+
+.project-info-header{
+  position: relative;
+  z-index: 2;
+  padding: 28px 32px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.project-info-header small{
+  display: block;
+  color: rgba(0,245,255,0.78);
+  font-size: 11px;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  font-weight: 800;
+}
+
+.project-info-header strong{
+  display: block;
+  color: #f5fbff;
+  font-size: clamp(22px, 2vw, 32px);
+  line-height: 1.25;
+  letter-spacing: -0.6px;
+}
+
+.project-info-content{
+  position: relative;
+  z-index: 2;
+  padding: 34px 32px 24px;
+}
+
+.project-info-content p{
+  color: rgba(225,235,245,0.72);
+  font-size: 17px;
+  line-height: 1.9;
+  margin-bottom: 20px;
+}
+
+.project-info-content p strong{
+  color: #00f5ff;
+  font-weight: 800;
+}
+
+.project-tags{
+  position: relative;
+  z-index: 2;
+  padding: 0 32px 34px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.project-tags span{
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,245,255,0.18);
+  background: rgba(0,245,255,0.06);
+  color: rgba(225,245,255,0.84);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
   </style>
 </head>
 <body>
@@ -924,64 +1014,42 @@
 
     </div>
 
-    <div class="simulation-panel">
-      <div class="sim-header">
-        <div>
-          <small>CONTROL SIMULATION</small>
-          <strong>Gesture Command Interface</strong>
-        </div>
-        <span class="sim-status">ACTIVE</span>
-      </div>
-
-      <div class="sim-screen">
-        <div class="radar-grid"></div>
-        <div class="radar-circle circle-one"></div>
-        <div class="radar-circle circle-two"></div>
-        <div class="radar-sweep"></div>
-
-        <div class="vehicle-core">
-          <div class="vehicle-dot"></div>
-          <span>AV-01</span>
-        </div>
-
-        <div class="gesture-node node-one">
-          <span>HAND</span>
-        </div>
-
-        <div class="gesture-node node-two">
-          <span>AI</span>
-        </div>
-
-        <div class="gesture-node node-three">
-          <span>CTRL</span>
-        </div>
-
-        <div class="signal-line line-one"></div>
-        <div class="signal-line line-two"></div>
-        <div class="signal-line line-three"></div>
-      </div>
-
-      <div class="sim-data">
-        <div class="data-row">
-          <span>Gesture Detection</span>
-          <strong>98%</strong>
-        </div>
-        <div class="data-bar"><i style="width:98%;"></i></div>
-
-        <div class="data-row">
-          <span>Model Confidence</span>
-          <strong>94%</strong>
-        </div>
-        <div class="data-bar"><i style="width:94%;"></i></div>
-
-        <div class="data-row">
-          <span>Control Signal</span>
-          <strong>ONLINE</strong>
-        </div>
-        <div class="data-bar"><i style="width:88%;"></i></div>
-      </div>
-    </div>
+    <div class="project-info-panel">
+  <div class="project-info-header">
+    <small>PROJECT OVERVIEW</small>
+    <strong>El Hareketleri ile Derin Öğrenme Tabanlı Otonom Araç Kontrolü</strong>
   </div>
+
+  <div class="project-info-content">
+    <p>
+      <strong>El Hareketleri ile Derin Öğrenme Tabanlı Otonom Araç Kontrolü</strong> projesi,
+      insan-makine etkileşimini daha doğal, hızlı ve güvenli hale getirmeyi amaçlayan
+      yenilikçi bir teknoloji çalışmasıdır.
+    </p>
+
+    <p>
+      Sistem, kullanıcıya ait el hareketlerini derin öğrenme yöntemleriyle algılayarak
+      anlamlandırmakta ve bu hareketleri otonom araç için kontrol komutlarına dönüştürmektedir.
+    </p>
+
+    <p>
+      Özellikle savunma sanayii, otonom araçlar ve riskli operasyon alanlarında kullanılabilecek
+      bu yaklaşım; temassız kontrol, yüksek doğruluk ve operasyonel verimlilik gibi önemli
+      avantajlar sunmaktadır.
+    </p>
+
+    <p>
+      Projemiz, geleceğin akıllı ve güvenli otonom sistemlerine katkı sağlamayı hedeflemektedir.
+    </p>
+  </div>
+
+  <div class="project-tags">
+    <span>Deep Learning</span>
+    <span>Computer Vision</span>
+    <span>Autonomous Control</span>
+    <span>Gesture Recognition</span>
+  </div>
+</div>
 </section>
   <footer>© 2026 YAĞMUR SÖNMEZ (BİLGİSAYAR MÜHENDİSİ) • Vision Technologies</footer>
 
@@ -1029,7 +1097,7 @@ function startTitleTyping(){
         startTitleTyping();
       }, 8000);
     }
-  }, 42);
+  }, 55);
 }
 
 startTitleTyping();

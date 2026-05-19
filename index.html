@@ -272,16 +272,19 @@
 
     /* CURSOR */
     .cursor{
-      width:20px;
-      height:20px;
-      border:2px solid var(--cyan);
-      box-shadow:0 0 20px rgba(0,245,255,0.35);
-      border-radius:50%;
-      position:fixed;
-      pointer-events:none;
-      transform:translate(-50%,-50%);
-      z-index:9999;
-    }
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--cyan);
+  box-shadow:
+    0 0 16px rgba(0,245,255,0.65),
+    0 0 34px rgba(108,59,255,0.28);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  mix-blend-mode: screen;
+}
 
     /* HEADER */
     header{

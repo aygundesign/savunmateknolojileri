@@ -1154,9 +1154,80 @@
     line-height: 1.75;
   }
 }
+ .otonom-right-images{
+  position: fixed;
+  right: 72px;
+  top: 145px;
+  z-index: 6;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  pointer-events: none;
+}
+
+.otonom-right-images img{
+  width: 300px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  opacity: 0.92;
+  filter:
+    drop-shadow(0 0 22px rgba(0,245,255,0.20))
+    drop-shadow(0 22px 40px rgba(0,0,0,0.42));
+  transform: translateZ(0);
+  animation: otonomImageFloat 5.5s ease-in-out infinite;
+}
+
+.otonom-right-images img:nth-child(2){
+  width: 330px;
+  animation-delay: 0.7s;
+}
+
+.otonom-right-images img:nth-child(3){
+  width: 285px;
+  animation-delay: 1.4s;
+}
+
+@keyframes otonomImageFloat{
+  0%,100%{
+    transform: translateY(0);
+  }
+  50%{
+    transform: translateY(-12px);
+  }
+}
+
+@media(max-width: 1200px){
+  .otonom-right-images{
+    right: 34px;
+  }
+
+  .otonom-right-images img{
+    width: 230px;
+  }
+
+  .otonom-right-images img:nth-child(2){
+    width: 250px;
+  }
+
+  .otonom-right-images img:nth-child(3){
+    width: 220px;
+  }
+}
+
+@media(max-width: 900px){
+  .otonom-right-images{
+    display: none;
+  }
+}
   </style>
 </head>
 <body>
+  <div class="otonom-right-images">
+  <img src="otonom-1.png" alt="Otonom araç görseli 1">
+  <img src="otonom-2.png" alt="Otonom araç görseli 2">
+  <img src="otonom-3.png" alt="Otonom araç görseli 3">
+</div>
 
   <div class="cursor"></div>
   <div class="mouse-glow"></div>

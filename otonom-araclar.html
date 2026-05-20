@@ -1534,6 +1534,148 @@
     height: 150px;
   }
 }
+  .ida-section{
+  position: relative;
+  z-index: 5;
+  padding: 80px 40px 140px;
+}
+
+.ida-info-box{
+  width: min(1320px, 95%);
+  margin: 0 auto;
+  border-radius: 34px;
+  border: 1px solid rgba(0,245,255,0.20);
+  background:
+    radial-gradient(circle at 22% 20%, rgba(0,245,255,0.12), transparent 34%),
+    radial-gradient(circle at 82% 80%, rgba(108,59,255,0.15), transparent 34%),
+    rgba(4,10,22,0.76);
+  backdrop-filter: blur(18px);
+  box-shadow:
+    0 40px 120px rgba(0,0,0,0.40),
+    inset 0 1px 0 rgba(255,255,255,0.07);
+  padding: 42px 48px;
+  position: relative;
+  overflow: hidden;
+}
+
+.ida-info-box::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(rgba(0,245,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,245,255,0.04) 1px, transparent 1px);
+  background-size: 42px 42px;
+  opacity: 0.45;
+  pointer-events:none;
+}
+
+.ida-info-box small,
+.ida-info-box h2,
+.ida-info-box p{
+  position: relative;
+  z-index: 2;
+}
+
+.ida-info-box small{
+  display: block;
+  color: rgba(0,245,255,0.82);
+  font-size: 12px;
+  letter-spacing: 2.4px;
+  margin-bottom: 14px;
+  font-weight: 800;
+}
+
+.ida-info-box h2{
+  color: #f5fbff;
+  font-size: clamp(34px, 4vw, 62px);
+  line-height: 1.08;
+  letter-spacing: -1.4px;
+  margin-bottom: 26px;
+}
+
+.ida-info-box p{
+  color: rgba(225,235,245,0.76);
+  font-size: clamp(17px, 1.2vw, 22px);
+  line-height: 1.9;
+  max-width: 1120px;
+}
+
+.ida-image-marquee{
+  width: 100%;
+  overflow: hidden;
+  margin-top: 54px;
+  position: relative;
+}
+
+.ida-image-marquee::before,
+.ida-image-marquee::after{
+  content:"";
+  position:absolute;
+  top:0;
+  width:160px;
+  height:100%;
+  z-index:3;
+  pointer-events:none;
+}
+
+.ida-image-marquee::before{
+  left:0;
+  background:linear-gradient(90deg, rgba(3,4,10,0.95), transparent);
+}
+
+.ida-image-marquee::after{
+  right:0;
+  background:linear-gradient(270deg, rgba(3,4,10,0.95), transparent);
+}
+
+.ida-image-track{
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  width: max-content;
+  animation: idaImageFlow 30s linear infinite;
+}
+
+.ida-image-track img{
+  height: 220px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  flex: 0 0 auto;
+  filter:
+    drop-shadow(0 0 24px rgba(0,245,255,0.18))
+    drop-shadow(0 24px 42px rgba(0,0,0,0.44));
+  opacity: 0.96;
+}
+
+@keyframes idaImageFlow{
+  0%{
+    transform: translateX(0);
+  }
+  100%{
+    transform: translateX(-50%);
+  }
+}
+
+@media(max-width: 900px){
+  .ida-section{
+    padding: 70px 22px 110px;
+  }
+
+  .ida-info-box{
+    padding: 32px 26px;
+    border-radius: 28px;
+  }
+
+  .ida-image-track{
+    gap: 46px;
+  }
+
+  .ida-image-track img{
+    height: 150px;
+  }
+}
   </style>
 </head>
 <body>
@@ -1686,6 +1828,33 @@
       <img src="kara-4.png" alt="KARA görseli 4">
       <img src="kara-5.png" alt="KARA görseli 5">
       <img src="kara-6.png" alt="KARA görseli 6">
+    </div>
+  </div>
+</section>
+  <section class="ida-section">
+  <div class="ida-info-box">
+    <small>AUTONOMOUS MARITIME PLATFORM</small>
+    <h2>İnsansız Deniz Araçları (İDA)</h2>
+
+    <p>
+      İnsansız Deniz Araçları (İDA), deniz yetki alanlarının savunulmasında ve açık deniz operasyonlarında stratejik üstünlük
+      sağlamak için geliştirilmiş su üstü ve su altı sistemleridir. Kıyı güvenliği, liman savunması, mayın avlama, denizaltı savunma harbi 
+      ve asimetrik tehditlere karşı koyma görevlerinde yüksek etkinlik gösterirler. İnsanlı unsurların görev yapmakta zorlandığı 
+      ağır deniz şartlarında uzun süre kesintisiz devriye atarak deniz kuvvetlerinin gücünü çarpan etkisiyle artırırlar.
+    </p>
+  </div>
+
+  <div class="ida-image-marquee">
+    <div class="ida-image-track">
+      <img src="ida-1.png" alt="İDA görsel 1">
+      <img src="ida-2.png" alt="İDA görsel 2">
+      <img src="ida-3.png" alt="İDA görsel 3">
+      <img src="ida-4.png" alt="İDA görsel 4">
+
+      <img src="ida-1.png" alt="İDA görsel 1">
+      <img src="ida-2.png" alt="İDA görsel 2">
+      <img src="ida-3.png" alt="İDA görsel 3">
+      <img src="ida-4.png" alt="İDA görsel 4">
     </div>
   </div>
 </section>

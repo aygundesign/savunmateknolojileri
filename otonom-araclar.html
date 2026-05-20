@@ -969,55 +969,7 @@
     0 0 28px rgba(108,59,255,0.45);
   opacity: 0;
 }
-  .autonomous-info-section{
-  min-height: 100vh;
-  padding: 150px 60px 120px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.autonomous-info-panel{
-  width: min(1180px, 94%);
-  min-height: 620px;
-  border-radius: 36px;
-  overflow: hidden;
-  position: relative;
-  border: 1px solid rgba(0,245,255,0.20);
-  background:
-    radial-gradient(circle at 22% 18%, rgba(0,245,255,0.13), transparent 34%),
-    radial-gradient(circle at 82% 78%, rgba(108,59,255,0.18), transparent 34%),
-    rgba(4,10,22,0.78);
-  backdrop-filter: blur(20px);
-  box-shadow:
-    0 40px 120px rgba(0,0,0,0.42),
-    inset 0 1px 0 rgba(255,255,255,0.07);
-}
-
-.autonomous-info-panel::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background-image:
-    linear-gradient(rgba(0,245,255,0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,245,255,0.045) 1px, transparent 1px);
-  background-size: 42px 42px;
-  opacity: 0.5;
-  pointer-events:none;
-}
-
-.autonomous-info-panel::after{
-  content:"";
-  position:absolute;
-  width: 420px;
-  height: 420px;
-  right: -120px;
-  bottom: -140px;
-  background: radial-gradient(circle, rgba(0,245,255,0.18), transparent 68%);
-  filter: blur(14px);
-  pointer-events:none;
-}
-
+  
 .project-info-header{
   position: relative;
   z-index: 2;
@@ -1066,8 +1018,128 @@
     padding: 120px 22px 90px;
   }
 
-  .autonomous-info-panel{
+ 
+
+  .project-info-header,
+ .autonomous-info-section{
+  min-height: 100vh;
+  padding: 145px 40px 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.autonomous-info-wrapper{
+  width: min(1580px, 96%);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  align-items: stretch;
+}
+
+.autonomous-info-card{
+  min-height: 680px;
+  border-radius: 34px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgba(0,245,255,0.20);
+  background:
+    radial-gradient(circle at 22% 18%, rgba(0,245,255,0.13), transparent 34%),
+    radial-gradient(circle at 82% 78%, rgba(108,59,255,0.18), transparent 34%),
+    rgba(4,10,22,0.78);
+  backdrop-filter: blur(20px);
+  box-shadow:
+    0 40px 120px rgba(0,0,0,0.42),
+    inset 0 1px 0 rgba(255,255,255,0.07);
+}
+
+.autonomous-info-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(rgba(0,245,255,0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,245,255,0.045) 1px, transparent 1px);
+  background-size: 42px 42px;
+  opacity: 0.5;
+  pointer-events:none;
+}
+
+.autonomous-info-card::after{
+  content:"";
+  position:absolute;
+  width: 360px;
+  height: 360px;
+  right: -120px;
+  bottom: -130px;
+  background: radial-gradient(circle, rgba(0,245,255,0.18), transparent 68%);
+  filter: blur(14px);
+  pointer-events:none;
+}
+
+.project-info-header{
+  position: relative;
+  z-index: 2;
+  padding: 30px 36px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.project-info-header small{
+  display: block;
+  color: rgba(0,245,255,0.82);
+  font-size: 11px;
+  letter-spacing: 2.4px;
+  margin-bottom: 12px;
+  font-weight: 800;
+}
+
+.project-info-header strong{
+  display: block;
+  color: #f5fbff;
+  font-size: clamp(26px, 2.2vw, 40px);
+  line-height: 1.18;
+  letter-spacing: -1px;
+}
+
+.autonomous-info-content{
+  position: relative;
+  z-index: 2;
+  padding: 34px 36px 42px;
+}
+
+.autonomous-info-content p{
+  color: rgba(225,235,245,0.74);
+  font-size: clamp(16px, 1vw, 19px);
+  line-height: 1.85;
+  margin-bottom: 20px;
+}
+
+.autonomous-info-content strong{
+  color: #00f5ff;
+  font-weight: 800;
+}
+
+@media(max-width: 1100px){
+  .autonomous-info-wrapper{
+    grid-template-columns: 1fr;
+  }
+
+  .autonomous-info-card{
     min-height: auto;
+  }
+}
+
+@media(max-width: 800px){
+  .autonomous-info-section{
+    padding: 120px 22px 90px;
+  }
+
+  .autonomous-info-wrapper{
+    width: 100%;
+    gap: 22px;
+  }
+
+  .autonomous-info-card{
     border-radius: 28px;
   }
 
@@ -1075,6 +1147,11 @@
   .autonomous-info-content{
     padding-left: 26px;
     padding-right: 26px;
+  }
+
+  .autonomous-info-content p{
+    font-size: 15px;
+    line-height: 1.75;
   }
 }
   </style>
@@ -1119,26 +1196,50 @@
 </section>
 
 <section class="section autonomous-info-section">
-  <div class="autonomous-info-panel">
-    <div class="project-info-header">
-      <small>AUTONOMOUS VEHICLE TECHNOLOGIES</small>
-      <strong>Otonom Araç Teknolojileri</strong>
+  <div class="autonomous-info-wrapper">
+
+    <div class="autonomous-info-card">
+      <div class="project-info-header">
+        <small>AUTONOMOUS VEHICLE TECHNOLOGIES</small>
+        <strong>Otonom Araç Teknolojileri</strong>
+      </div>
+
+      <div class="autonomous-info-content">
+        <p>
+          Otonom araçlar, insan müdahalesine ihtiyaç duymadan görev icra edebilen ve yapay zekâ destekli karar mekanizmalarıyla donatılmış gelişmiş sistemlerdir. Radar, lidar, termal kameralar ve gelişmiş sensörler sayesinde çevrelerini detaylı biçimde algılar ve anlık taktiksel değerlendirmeler yapabilirler.
+        </p>
+
+        <p>
+          Savunma sanayisinde bu araçlar; keşif, gözetleme, sınır güvenliği ve operasyonel destek gibi kritik görevlerde aktif olarak kullanılmaktadır. İnsansız hava, kara ve deniz araçları (İHA, İKA, İDA) olarak farklı platformlarda geliştirilen otonom sistemler, personelin riskli bölgelerde bulunma ihtiyacını azaltarak can güvenliğini artırır.
+        </p>
+
+        <p>
+          Zorlu arazi ve iklim koşullarında, hatta elektronik harp ortamlarında dahi görevlerini sürdürebilecek dayanıklılığa sahiptirler. Bu özellikleri sayesinde modern ordular için stratejik bir güç çarpanı haline gelmişlerdir.
+        </p>
+      </div>
     </div>
 
-    <div class="autonomous-info-content">
-      <p>
-        Otonom araçlar, insan müdahalesine ihtiyaç duymadan görev icra edebilen ve yapay zekâ destekli karar mekanizmalarıyla donatılmış gelişmiş sistemlerdir. 
-        Radar, lidar, termal kameralar ve gelişmiş sensörler sayesinde çevrelerini detaylı biçimde algılar ve anlık taktiksel değerlendirmeler yapabilirler. 
-        Savunma sanayisinde bu araçlar; keşif, gözetleme, sınır güvenliği ve operasyonel destek gibi kritik görevlerde aktif olarak kullanılmaktadır. 
-        İnsansız hava, kara ve deniz araçları (İHA, İKA, İDA) olarak farklı platformlarda geliştirilen otonom sistemler, personelin riskli bölgelerde bulunma ihtiyacını azaltarak can güvenliğini artırır. 
-        Zorlu arazi ve iklim koşullarında, hatta elektronik harp ortamlarında dahi görevlerini sürdürebilecek dayanıklılığa sahiptirler. Bu özellikleri sayesinde modern ordular için stratejik bir güç çarpanı haline gelmişlerdir.
+    <div class="autonomous-info-card">
+      <div class="project-info-header">
+        <small>STRATEGIC OPERATION CAPABILITY</small>
+        <strong>Sürü Teknolojisi ve Operasyonel Etkinlik</strong>
+      </div>
 
-        Ayrıca otonom sistemler, sürü teknolojisi sayesinde birbirleriyle koordineli hareket ederek eş zamanlı operasyonlar gerçekleştirebilir. 
-        İnsan kaynaklı hata, yorgunluk ve stres gibi faktörleri ortadan kaldırarak 7/24 kesintisiz operasyon kabiliyeti sunarlar. Lojistik destek, mühimmat taşıma ve yaralı tahliyesi gibi görevleri hızlı ve güvenli şekilde yerine getirebilirler. 
-        Gelişmiş yapay zekâ algoritmaları sayesinde her görevden elde edilen verileri analiz ederek performanslarını sürekli geliştirirler. Gerçek zamanlı veri aktarımı ile komuta merkezlerine anlık istihbarat sağlar ve karar alma süreçlerini hızlandırırlar. 
-        Sonuç olarak savunma sanayisinde otonom araçlar, operasyonel etkinliği artıran ve geleceğin harp konseptini şekillendiren kritik teknolojiler arasında yer almaktadır.
-      </p>
+      <div class="autonomous-info-content">
+        <p>
+          Ayrıca otonom sistemler, sürü teknolojisi sayesinde birbirleriyle koordineli hareket ederek eş zamanlı operasyonlar gerçekleştirebilir. İnsan kaynaklı hata, yorgunluk ve stres gibi faktörleri ortadan kaldırarak 7/24 kesintisiz operasyon kabiliyeti sunarlar.
+        </p>
+
+        <p>
+          Lojistik destek, mühimmat taşıma ve yaralı tahliyesi gibi görevleri hızlı ve güvenli şekilde yerine getirebilirler. Gelişmiş yapay zekâ algoritmaları sayesinde her görevden elde edilen verileri analiz ederek performanslarını sürekli geliştirirler.
+        </p>
+
+        <p>
+          Gerçek zamanlı veri aktarımı ile komuta merkezlerine anlık istihbarat sağlar ve karar alma süreçlerini hızlandırırlar. Sonuç olarak savunma sanayisinde otonom araçlar, operasyonel etkinliği artıran ve geleceğin harp konseptini şekillendiren kritik teknolojiler arasında yer almaktadır.
+        </p>
+      </div>
     </div>
+
   </div>
 </section>
   <footer>© 2026 YAĞMUR SÖNMEZ (BİLGİSAYAR MÜHENDİSİ) • Vision Technologies</footer>

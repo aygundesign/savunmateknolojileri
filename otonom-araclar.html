@@ -1391,6 +1391,149 @@
     height: 150px;
   }
 }
+  .ugv-section{
+  position: relative;
+  z-index: 5;
+  padding: 80px 40px 140px;
+}
+
+.ugv-info-box{
+  width: min(1320px, 95%);
+  margin: 0 auto;
+  border-radius: 34px;
+  border: 1px solid rgba(0,245,255,0.20);
+  background:
+    radial-gradient(circle at 22% 20%, rgba(0,245,255,0.12), transparent 34%),
+    radial-gradient(circle at 82% 80%, rgba(108,59,255,0.15), transparent 34%),
+    rgba(4,10,22,0.76);
+  backdrop-filter: blur(18px);
+  box-shadow:
+    0 40px 120px rgba(0,0,0,0.40),
+    inset 0 1px 0 rgba(255,255,255,0.07);
+  padding: 42px 48px;
+  position: relative;
+  overflow: hidden;
+}
+
+.ugv-info-box::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(rgba(0,245,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,245,255,0.04) 1px, transparent 1px);
+  background-size: 42px 42px;
+  opacity: 0.45;
+  pointer-events:none;
+}
+
+.ugv-info-box small,
+.ugv-info-box h2,
+.ugv-info-box p{
+  position: relative;
+  z-index: 2;
+}
+
+.ugv-info-box small{
+  display: block;
+  color: rgba(0,245,255,0.82);
+  font-size: 12px;
+  letter-spacing: 2.4px;
+  margin-bottom: 14px;
+  font-weight: 800;
+}
+
+.ugv-info-box h2{
+  color: #f5fbff;
+  font-size: clamp(34px, 4vw, 62px);
+  line-height: 1.08;
+  letter-spacing: -1.4px;
+  margin-bottom: 26px;
+}
+
+.ugv-info-box p{
+  color: rgba(225,235,245,0.76);
+  font-size: clamp(17px, 1.2vw, 22px);
+  line-height: 1.9;
+  max-width: 1120px;
+}
+
+/* KARA PNG KAYAN GÖRSEL ALANI */
+.ugv-image-marquee{
+  width: 100%;
+  overflow: hidden;
+  margin-top: 54px;
+  position: relative;
+}
+
+.ugv-image-marquee::before,
+.ugv-image-marquee::after{
+  content:"";
+  position:absolute;
+  top:0;
+  width:160px;
+  height:100%;
+  z-index:3;
+  pointer-events:none;
+}
+
+.ugv-image-marquee::before{
+  left:0;
+  background:linear-gradient(90deg, rgba(3,4,10,0.95), transparent);
+}
+
+.ugv-image-marquee::after{
+  right:0;
+  background:linear-gradient(270deg, rgba(3,4,10,0.95), transparent);
+}
+
+.ugv-image-track{
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  width: max-content;
+  animation: ugvImageFlow 30s linear infinite;
+}
+
+.ugv-image-track img{
+  height: 220px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  flex: 0 0 auto;
+  filter:
+    drop-shadow(0 0 24px rgba(0,245,255,0.18))
+    drop-shadow(0 24px 42px rgba(0,0,0,0.44));
+  opacity: 0.95;
+}
+
+@keyframes ugvImageFlow{
+  0%{
+    transform: translateX(0);
+  }
+  100%{
+    transform: translateX(-50%);
+  }
+}
+
+@media(max-width: 900px){
+  .ugv-section{
+    padding: 70px 22px 110px;
+  }
+
+  .ugv-info-box{
+    padding: 32px 26px;
+    border-radius: 28px;
+  }
+
+  .ugv-image-track{
+    gap: 46px;
+  }
+
+  .ugv-image-track img{
+    height: 150px;
+  }
+}
   </style>
 </head>
 <body>
@@ -1511,6 +1654,38 @@
       <img src="iha-2.png" alt="İHA görseli 2">
       <img src="iha-3.png" alt="İHA görseli 3">
       <img src="iha-4.png" alt="İHA görseli 4">
+    </div>
+  </div>
+</section>
+  <section class="ugv-section">
+  <div class="ugv-info-box">
+    <small>AUTONOMOUS GROUND PLATFORM</small>
+    <h2>İnsansız Kara Araçları (İKA)</h2>
+
+    <p>
+      İnsansız Kara Araçları (İKA), muharebe sahasında ve zorlu arazi koşullarında personel riskini
+      en aza indirmek amacıyla tasarlanmış otonom sistemlerdir. Bu platformlar; tehlikeli bölgelerde
+      keşif-gözetleme, patlayıcı imhası, lojistik ikmal ve piyade birliklerine doğrudan ateş desteği
+      sağlama gibi kritik görevleri üstlenir. Yüksek hareket kabiliyetleri ve zırhlı yapıları sayesinde,
+      çatışma ortamlarında kara birliklerine büyük bir taktik avantaj ve güvenlik sunarlar.
+    </p>
+  </div>
+
+  <div class="ugv-image-marquee">
+    <div class="ugv-image-track">
+      <img src="kara-1.png" alt="KARA görseli 1">
+      <img src="kara-2.png" alt="KARA görseli 2">
+      <img src="kara-3.png" alt="KARA görseli 3">
+      <img src="kara-4.png" alt="KARA görseli 4">
+      <img src="kara-5.png" alt="KARA görseli 5">
+      <img src="kara-6.png" alt="KARA görseli 6">
+
+      <img src="kara-1.png" alt="KARA görseli 1">
+      <img src="kara-2.png" alt="KARA görseli 2">
+      <img src="kara-3.png" alt="KARA görseli 3">
+      <img src="kara-4.png" alt="KARA görseli 4">
+      <img src="kara-5.png" alt="KARA görseli 5">
+      <img src="kara-6.png" alt="KARA görseli 6">
     </div>
   </div>
 </section>

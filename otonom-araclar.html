@@ -1681,6 +1681,80 @@
     height: 150px;
   }
 }
+  .labeled-images{
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.labeled-image-row{
+  display: grid;
+  grid-template-columns: 1fr 220px 1fr;
+  align-items: center;
+  gap: 18px;
+  min-height: 180px;
+  padding: 14px 18px;
+  border-radius: 24px;
+  border: 1px solid rgba(0,245,255,0.16);
+  background:
+    radial-gradient(circle at center, rgba(0,245,255,0.08), transparent 60%),
+    rgba(3,8,18,0.44);
+}
+
+.labeled-image-row img{
+  width: 220px;
+  height: 150px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  filter:
+    drop-shadow(0 0 18px rgba(0,245,255,0.16))
+    drop-shadow(0 18px 30px rgba(0,0,0,0.36));
+}
+
+.mini-label{
+  color: rgba(225,235,245,0.78);
+}
+
+.mini-label.left{
+  text-align: right;
+}
+
+.mini-label.right{
+  text-align: left;
+}
+
+.mini-label strong{
+  display: block;
+  color: #00f5ff;
+  font-size: 15px;
+  font-weight: 800;
+  margin-bottom: 7px;
+}
+
+.mini-label span{
+  display: block;
+  font-size: 13px;
+  line-height: 1.5;
+  color: rgba(220,230,240,0.62);
+}
+
+@media(max-width: 1050px){
+  .labeled-image-row{
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .mini-label.left,
+  .mini-label.right{
+    text-align: center;
+  }
+
+  .labeled-image-row img{
+    width: 230px;
+    height: 150px;
+  }
+}
   </style>
 </head>
 <body>
@@ -1768,53 +1842,47 @@
       </div>
     </div>
 
-  <div class="platforms-showcase">
+ <div class="image-side-small labeled-images">
 
-  <div class="platform-row">
-    <div class="platform-text left">
-      <h4>İnsansız Kara Araçları</h4>
-      <p>Keşif, lojistik ve riskli kara görevlerinde etkin çözüm.</p>
+  <div class="labeled-image-row">
+    <div class="mini-label left">
+      <strong>İnsansız Kara Araçları</strong>
+      <span>Keşif, lojistik ve riskli kara görevlerinde etkin çözüm.</span>
     </div>
 
-    <div class="platform-image">
-      <img src="otonom-1.png" alt="İnsansız Kara Aracı">
-    </div>
+    <img src="otonom-1.png" alt="Otonom araç görseli 1">
 
-    <div class="platform-text right">
-      <h4>Kara Operasyon Gücü</h4>
-      <p>Personel güvenliğini artıran otonom kara platformu.</p>
+    <div class="mini-label right">
+      <strong>Kara Operasyon Gücü</strong>
+      <span>Personel güvenliğini artıran otonom kara platformu.</span>
     </div>
   </div>
 
-  <div class="platform-row">
-    <div class="platform-text left">
-      <h4>İnsansız Hava Araçları</h4>
-      <p>Hava keşfi ve gerçek zamanlı istihbaratta yüksek performans.</p>
+  <div class="labeled-image-row">
+    <div class="mini-label left">
+      <strong>İnsansız Hava Araçları</strong>
+      <span>Hava keşfi ve gerçek zamanlı istihbarat desteği sağlar.</span>
     </div>
 
-    <div class="platform-image">
-      <img src="otonom-2.png" alt="İnsansız Hava Aracı">
-    </div>
+    <img src="otonom-2.png" alt="Otonom araç görseli 2">
 
-    <div class="platform-text right">
-      <h4>Hava Hakimiyeti</h4>
-      <p>Geniş alan tarama ve hedef takibinde güçlü çözüm.</p>
+    <div class="mini-label right">
+      <strong>Hava Hakimiyeti</strong>
+      <span>Geniş alan tarama ve hedef takibinde yüksek performans.</span>
     </div>
   </div>
 
-  <div class="platform-row">
-    <div class="platform-text left">
-      <h4>İnsansız Deniz Araçları</h4>
-      <p>Kıyı güvenliği ve açık deniz görevleri için stratejik yapı.</p>
+  <div class="labeled-image-row">
+    <div class="mini-label left">
+      <strong>İnsansız Deniz Araçları</strong>
+      <span>Kıyı güvenliği ve açık deniz görevlerinde stratejik yapı.</span>
     </div>
 
-    <div class="platform-image">
-      <img src="otonom-3.png" alt="İnsansız Deniz Aracı">
-    </div>
+    <img src="otonom-3.png" alt="Otonom araç görseli 3">
 
-    <div class="platform-text right">
-      <h4>Deniz Savunma Yeteneği</h4>
-      <p>Uzun süreli devriye ve gözetleme kabiliyeti sunar.</p>
+    <div class="mini-label right">
+      <strong>Deniz Savunma Yeteneği</strong>
+      <span>Devriye, gözetleme ve savunma görevlerinde etkin çözüm.</span>
     </div>
   </div>
 

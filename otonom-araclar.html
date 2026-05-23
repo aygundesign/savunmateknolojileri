@@ -1030,14 +1030,14 @@
 }
 
 .autonomous-info-wrapper{
-  width: min(1580px, 96%);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 28px;
-  align-items: stretch;
+  width: min(1180px, 92%);
+  margin: 0 auto;
+  display: block;
 }
 
 .autonomous-info-card{
+  width: 100%;
+  margin: 0 auto 34px auto;
   min-height: 680px;
   border-radius: 34px;
   overflow: hidden;
@@ -1078,6 +1078,7 @@
 }
 
 .project-info-header{
+  text-align: center;
   position: relative;
   z-index: 2;
   padding: 30px 36px;
@@ -1102,12 +1103,16 @@
 }
 
 .autonomous-info-content{
+  text-align: center;
   position: relative;
   z-index: 2;
   padding: 34px 36px 42px;
 }
 
 .autonomous-info-content p{
+  max-width: 1050px;
+  margin-left: auto;
+  margin-right: auto;
   color: rgba(225,235,245,0.74);
   font-size: clamp(16px, 1vw, 19px);
   line-height: 1.85;

@@ -969,6 +969,214 @@
     0 0 28px rgba(108,59,255,0.45);
   opacity: 0;
 }
+  
+/* PROJECT PAGE CUSTOM SECTION */
+.project-tech-section{
+  padding: 120px 60px 130px;
+}
+
+.project-tech-section h2{
+  text-align: center;
+  margin-bottom: 48px;
+  font-size: clamp(36px, 4vw, 58px);
+  color: #f5fbff;
+  letter-spacing: -1px;
+}
+
+.project-accordion-list{
+  width: min(1320px, 94%);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.project-open-card,
+.project-accordion-card{
+  border-radius: 30px;
+  border: 1px solid rgba(0,245,255,0.18);
+  background:
+    radial-gradient(circle at 18% 20%, rgba(0,245,255,0.11), transparent 34%),
+    radial-gradient(circle at 86% 70%, rgba(108,59,255,0.14), transparent 32%),
+    rgba(5,12,24,0.74);
+  backdrop-filter: blur(16px);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.05),
+    0 28px 80px rgba(0,0,0,0.28);
+  overflow: hidden;
+  position: relative;
+}
+
+.project-open-card::before,
+.project-accordion-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(rgba(0,245,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,245,255,0.04) 1px, transparent 1px);
+  background-size: 42px 42px;
+  opacity: 0.42;
+  pointer-events:none;
+}
+
+.project-open-card{
+  padding: 44px 48px 46px;
+}
+
+.project-main-title,
+.project-sub-title,
+.project-body-text,
+.project-accordion-card summary,
+.project-accordion-content{
+  position: relative;
+  z-index: 2;
+}
+
+.project-main-title{
+  color: #f5fbff;
+  font-size: clamp(34px, 3.9vw, 62px);
+  line-height: 1.08;
+  letter-spacing: -1.4px;
+  margin-bottom: 14px;
+  text-transform: uppercase;
+}
+
+.project-sub-title{
+  color: #00f5ff;
+  font-size: clamp(22px, 2.2vw, 34px);
+  line-height: 1.25;
+  letter-spacing: -0.6px;
+  margin-bottom: 30px;
+  font-weight: 800;
+}
+
+.project-body-text p{
+  color: rgba(225,235,245,0.76);
+  font-size: clamp(16px, 1.05vw, 20px);
+  line-height: 1.9;
+  margin-bottom: 22px;
+}
+
+.project-body-text p:last-child{
+  margin-bottom: 0;
+}
+
+.project-accordion-card{
+  transition: 0.35s ease;
+}
+
+.project-accordion-card:hover{
+  border-color: rgba(0,245,255,0.34);
+  box-shadow:
+    0 0 40px rgba(0,245,255,0.11),
+    inset 0 1px 0 rgba(255,255,255,0.07);
+}
+
+.project-accordion-card summary{
+  list-style: none;
+  cursor: pointer;
+  padding: 28px 34px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.project-accordion-card summary::-webkit-details-marker{
+  display: none;
+}
+
+.accordion-title{
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.accordion-number{
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  color: #00f5ff;
+  background: rgba(0,245,255,0.08);
+  border: 1px solid rgba(0,245,255,0.18);
+  font-weight: 800;
+  flex: 0 0 auto;
+}
+
+.accordion-title strong{
+  color: #f5fbff;
+  font-size: clamp(20px, 2vw, 30px);
+  letter-spacing: -0.4px;
+}
+
+.accordion-icon{
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,245,255,0.22);
+  display: grid;
+  place-items: center;
+  color: #00f5ff;
+  font-size: 24px;
+  line-height: 1;
+  transition: 0.3s ease;
+  flex: 0 0 auto;
+}
+
+.project-accordion-card[open] .accordion-icon{
+  transform: rotate(45deg);
+  background: rgba(0,245,255,0.08);
+}
+
+.project-accordion-content{
+  padding: 0 34px 32px 100px;
+  animation: accordionReveal 0.35s ease forwards;
+}
+
+.project-accordion-content p{
+  color: rgba(225,235,245,0.72);
+  font-size: 16px;
+  line-height: 1.85;
+}
+
+@keyframes accordionReveal{
+  from{
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media(max-width: 900px){
+  .project-tech-section{
+    padding: 100px 22px 100px;
+  }
+
+  .project-open-card{
+    padding: 34px 26px;
+    border-radius: 26px;
+  }
+
+  .project-accordion-card summary{
+    padding: 24px 22px;
+    align-items: flex-start;
+  }
+
+  .accordion-title{
+    align-items: flex-start;
+  }
+
+  .project-accordion-content{
+    padding: 0 22px 28px 22px;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -1007,82 +1215,79 @@
   </div>
 </section>
 
-  <section class="section tech-section">
-  <h2>Teknoloji Alanları</h2>
+  <section class="section project-tech-section">
+  <h2>Proje</h2>
 
-  <div class="tech-layout">
-    <div class="tech-list">
+  <div class="project-accordion-list">
 
-      <div class="tech-card">
-        <div class="tech-number">01</div>
-        <div>
-          <strong>Görüntü İşleme</strong>
-          <span>Kamera ve sensör verilerinin gerçek zamanlı analiz edilmesini sağlayan görüntü işleme altyapısı.</span>
-        </div>
+    <article class="project-open-card">
+      <h3 class="project-main-title">MODERN MUHAREBE SAHASINDA HAYATTA KALMA ve HIZ:</h3>
+      <h4 class="project-sub-title">Bu Proje Savunma Sanayisi İçin Neden Kritik Bir İhtiyaç?</h4>
+
+      <div class="project-body-text">
+        <p>
+          Geleceğin savaş konsepti (MUM-T: İnsan-İnsansız Sistem Birlikteliği), askerlerin ve otonom robotların omuz omuza görev yaptığı bir yapıya doğru hızla evrilmektedir. Ancak günümüzde bu insansız sistemleri (İHA, İKA, İDA) kontrol etmek için hala tabletlere, joystiklere veya karmaşık kumanda arayüzlerine ihtiyaç duyulmaktadır. Çatışma anının kaosu, yüksek stres ve zaman kısıtlaması göz önüne alındığında; bir askerin gözünü hedeften ayırıp bir ekrana bakması veya silahını bırakıp kumanda kullanmaya çalışması sadece operasyonu yavaşlatmakla kalmaz, aynı zamanda personelin hayatını doğrudan tehlikeye atar. Dahası, kumandalardan yayılan radyo frekansı (RF) sinyalleri, modern elektronik harp sistemleri tarafından kolayca tespit edilebilir ve birliğin konumu düşmana ifşa olabilir.
+        </p>
+
+        <p>
+          İşte bu proje, savunma sanayisindeki bu hayati güvenlik zafiyetini ve operasyonel darboğazı ortadan kaldırmak için geliştirilmiştir. Otonom sistemlerin, hiçbir fiziksel temas veya radyo sinyali olmadan, doğrudan insanın en doğal iletişim yöntemi olan "beden dili ve taktiksel el işaretleriyle" yönetilmesini sağlar. Geliştirdiğim bu derin öğrenme tabanlı altyapı sayesinde sahadaki asker; telsiz sessizliğinin (EMCON) zorunlu olduğu gizli bir sızma operasyonunda, tıpkı takım arkadaşına verdiği gibi tek bir el işaretiyle otonom araca "Beni Takip Et", "Bekle" veya "Devriye At" emrini verebilir. Bu teknoloji; sıfır sinyal iziyle elektronik harbe karşı görünmezlik sağlar, askerin bilişsel yükünü sıfıra indirerek dikkatini sadece tehdide vermesine olanak tanır ve komut-tepki süresini milisaniyelere çeker. Kısacası bu proje; savunma sanayisi için yalnızca yenilikçi bir arayüz değil, sahadaki personelin gücünü çarpan etkisiyle artıran ve modern muharebede hayatta kalmayı sağlayan kritik bir stratejik ihtiyaçtır.
+        </p>
       </div>
+    </article>
 
-      <div class="tech-card">
-        <div class="tech-number">02</div>
-        <div>
-          <strong>Derin Öğrenme</strong>
-          <span>El hareketlerinin algılanması, sınıflandırılması ve kontrol komutlarına dönüştürülmesi için akıllı model yapısı.</span>
+    <details class="project-accordion-card">
+      <summary>
+        <div class="accordion-title">
+          <span class="accordion-number">02</span>
+          <strong>İkinci Başlık Buraya Gelecek</strong>
         </div>
+        <span class="accordion-icon">+</span>
+      </summary>
+      <div class="project-accordion-content">
+        <p>Bu alan ikinci paragraf için hazır. Başlığı ve metni gönderdiğinde buraya yerleştirilecek.</p>
       </div>
+    </details>
 
-      <div class="tech-card">
-        <div class="tech-number">03</div>
-        <div>
-          <strong>Otonom Araç Kontrolü</strong>
-          <span>Algılanan hareket komutlarının otonom araç sistemlerine güvenli ve kontrollü şekilde aktarılması.</span>
+    <details class="project-accordion-card">
+      <summary>
+        <div class="accordion-title">
+          <span class="accordion-number">03</span>
+          <strong>Üçüncü Başlık Buraya Gelecek</strong>
         </div>
+        <span class="accordion-icon">+</span>
+      </summary>
+      <div class="project-accordion-content">
+        <p>Bu alan üçüncü paragraf için hazır. Başlığı ve metni gönderdiğinde buraya yerleştirilecek.</p>
       </div>
+    </details>
 
-      <div class="tech-card">
-        <div class="tech-number">04</div>
-        <div>
-          <strong>Yenilikçi Mühendislik</strong>
-          <span>Yazılım, yapay zekâ ve kontrol sistemlerini bir araya getiren teknoloji odaklı mühendislik yaklaşımı.</span>
+    <details class="project-accordion-card">
+      <summary>
+        <div class="accordion-title">
+          <span class="accordion-number">04</span>
+          <strong>Dördüncü Başlık Buraya Gelecek</strong>
         </div>
+        <span class="accordion-icon">+</span>
+      </summary>
+      <div class="project-accordion-content">
+        <p>Bu alan dördüncü paragraf için hazır. Başlığı ve metni gönderdiğinde buraya yerleştirilecek.</p>
       </div>
+    </details>
 
-    </div>
+    <details class="project-accordion-card">
+      <summary>
+        <div class="accordion-title">
+          <span class="accordion-number">05</span>
+          <strong>Beşinci Başlık Buraya Gelecek</strong>
+        </div>
+        <span class="accordion-icon">+</span>
+      </summary>
+      <div class="project-accordion-content">
+        <p>Bu alan beşinci paragraf için hazır. Başlığı ve metni gönderdiğinde buraya yerleştirilecek.</p>
+      </div>
+    </details>
 
-    <div class="project-info-panel">
-  <div class="project-info-header">
-    <small>PROJECT OVERVIEW</small>
-    <strong>El Hareketleri ile Derin Öğrenme Tabanlı Otonom Araç Kontrolü</strong>
   </div>
-
-  <div class="project-info-content">
-    <p>
-      <strong>El Hareketleri ile Derin Öğrenme Tabanlı Otonom Araç Kontrolü</strong> projesi,
-      insan-makine etkileşimini daha doğal, hızlı ve güvenli hale getirmeyi amaçlayan
-      yenilikçi bir teknoloji çalışmasıdır.
-    </p>
-
-    <p>
-      Sistem, kullanıcıya ait el hareketlerini derin öğrenme yöntemleriyle algılayarak
-      anlamlandırmakta ve bu hareketleri otonom araç için kontrol komutlarına dönüştürmektedir.
-    </p>
-
-    <p>
-      Özellikle savunma sanayii, otonom araçlar ve riskli operasyon alanlarında kullanılabilecek
-      bu yaklaşım; temassız kontrol, yüksek doğruluk ve operasyonel verimlilik gibi önemli
-      avantajlar sunmaktadır.
-    </p>
-
-    <p>
-      Projemiz, geleceğin akıllı ve güvenli otonom sistemlerine katkı sağlamayı hedeflemektedir.
-    </p>
-  </div>
-
-  <div class="project-tags">
-    <span>Deep Learning</span>
-    <span>Computer Vision</span>
-    <span>Autonomous Control</span>
-    <span>Gesture Recognition</span>
-  </div>
-</div>
 </section>
   <footer>© 2026 YAĞMUR SÖNMEZ (BİLGİSAYAR MÜHENDİSİ) • Vision Technologies</footer>
 

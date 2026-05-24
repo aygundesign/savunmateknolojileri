@@ -1846,6 +1846,185 @@
   }
 }
 
+  .platform-trigger{
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+}
+
+.platform-trigger img{
+  width: 220px;
+  height: 150px;
+  object-fit: contain;
+  display: block;
+  filter:
+    drop-shadow(0 0 18px rgba(0,245,255,0.16))
+    drop-shadow(0 18px 30px rgba(0,0,0,0.36));
+  transition: 0.35s ease;
+}
+
+.platform-trigger:hover img{
+  transform: scale(1.06) translateY(-4px);
+  filter:
+    drop-shadow(0 0 26px rgba(0,245,255,0.30))
+    drop-shadow(0 22px 36px rgba(0,0,0,0.44));
+}
+
+.platform-gallery-area{
+  width: min(1320px, 96%);
+  margin: 34px auto 0;
+  position: relative;
+  z-index: 6;
+}
+
+.platform-gallery-panel{
+  display: none;
+  border-radius: 34px;
+  border: 1px solid rgba(0,245,255,0.20);
+  background:
+    radial-gradient(circle at 20% 20%, rgba(0,245,255,0.12), transparent 34%),
+    radial-gradient(circle at 82% 78%, rgba(108,59,255,0.15), transparent 34%),
+    rgba(4,10,22,0.76);
+  backdrop-filter: blur(18px);
+  box-shadow:
+    0 40px 120px rgba(0,0,0,0.40),
+    inset 0 1px 0 rgba(255,255,255,0.07);
+  padding: 34px 36px 40px;
+  overflow: hidden;
+  position: relative;
+}
+
+.platform-gallery-panel.active{
+  display: block;
+  animation: galleryOpen 0.45s ease forwards;
+}
+
+@keyframes galleryOpen{
+  from{
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.platform-gallery-panel::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(rgba(0,245,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,245,255,0.04) 1px, transparent 1px);
+  background-size: 42px 42px;
+  opacity: 0.42;
+  pointer-events:none;
+}
+
+.gallery-header{
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  margin-bottom: 34px;
+}
+
+.gallery-header small{
+  display: block;
+  color: rgba(0,245,255,0.82);
+  font-size: 12px;
+  letter-spacing: 2.4px;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.gallery-header h3{
+  color: #f5fbff;
+  font-size: clamp(30px, 3.4vw, 54px);
+  line-height: 1.1;
+  letter-spacing: -1.2px;
+  margin: 0;
+}
+
+.gallery-grid{
+  position: relative;
+  z-index: 2;
+  display: grid;
+  gap: 26px;
+  align-items: stretch;
+}
+
+.gallery-grid.grid-4{
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.gallery-grid.grid-6{
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.gallery-item{
+  min-height: 240px;
+  border-radius: 26px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 22px;
+  background: rgba(3,8,18,0.34);
+  border: 1px solid rgba(0,245,255,0.14);
+  transition: 0.35s ease;
+}
+
+.gallery-item:hover{
+  transform: translateY(-6px);
+  border-color: rgba(0,245,255,0.32);
+  box-shadow: 0 0 36px rgba(0,245,255,0.12);
+}
+
+.gallery-item img{
+  width: 100%;
+  height: 170px;
+  object-fit: contain;
+  display: block;
+  filter:
+    drop-shadow(0 0 24px rgba(0,245,255,0.18))
+    drop-shadow(0 24px 42px rgba(0,0,0,0.44));
+}
+
+.gallery-item span{
+  color: rgba(235,245,255,0.88);
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  text-align: center;
+}
+
+@media(max-width: 1100px){
+  .gallery-grid.grid-4,
+  .gallery-grid.grid-6{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media(max-width: 700px){
+  .platform-gallery-panel{
+    padding: 28px 20px 32px;
+    border-radius: 28px;
+  }
+
+  .gallery-grid.grid-4,
+  .gallery-grid.grid-6{
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-item img{
+    height: 150px;
+  }
+}
   </style>
 </head>
 <body>
@@ -2788,4 +2967,29 @@ camera.lookAt(0, -0.02, 0);
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
   });
-</script>
+    /* PLATFORM CLICK GALLERY */
+const platformTriggers = document.querySelectorAll(".platform-trigger");
+const galleryPanels = document.querySelectorAll(".platform-gallery-panel");
+
+platformTriggers.forEach((trigger) => {
+  trigger.addEventListener("click", () => {
+    const targetId = trigger.getAttribute("data-target");
+    const targetPanel = document.getElementById(targetId);
+
+    galleryPanels.forEach((panel) => {
+      panel.classList.remove("active");
+    });
+
+    if(targetPanel){
+      targetPanel.classList.add("active");
+
+      setTimeout(() => {
+        targetPanel.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      }, 80);
+    }
+  });
+});
+ </script>

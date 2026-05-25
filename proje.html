@@ -1217,7 +1217,73 @@
   color: rgba(225,235,245,0.72);
   line-height: 1.85;
 }
-  </style>
+ 
+.gesture-image-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-top: 32px;
+}
+
+.gesture-image-card{
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(0,245,255,0.18);
+  background: rgba(3,8,18,0.42);
+  padding: 12px;
+  box-shadow:
+    0 24px 70px rgba(0,0,0,0.32),
+    inset 0 1px 0 rgba(255,255,255,0.05);
+  transition: 0.35s ease;
+}
+
+.gesture-image-card img{
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  display: block;
+  border-radius: 18px;
+}
+
+.gesture-image-card span{
+  display: block;
+  text-align: center;
+  margin-top: 12px;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+}
+
+.gesture-image-card.patrol span{
+  color: #f5a623;
+}
+
+.gesture-image-card.stay span{
+  color: #ff4d4d;
+}
+
+.gesture-image-card.follow span{
+  color: #54d66a;
+}
+
+.gesture-image-card:hover{
+  transform: translateY(-6px);
+  border-color: rgba(0,245,255,0.34);
+  box-shadow:
+    0 0 38px rgba(0,245,255,0.12),
+    0 30px 80px rgba(0,0,0,0.40);
+}
+
+@media(max-width: 900px){
+  .gesture-image-grid{
+    grid-template-columns: 1fr;
+  }
+
+  .gesture-image-card img{
+    height: auto;
+  }
+}  </style>
 </head>
 <body>
 
@@ -1317,27 +1383,43 @@
 
     <div class="command-list">
       <div class="command-item">
-        <strong>Açık El (Kağıt) ➔ "Follow Me" (Takip Et):</strong>
+        <strong>Açık El ➔ "Follow Me" (Takip Et):</strong>
         <p>
           Operatör elini açtığında, otonom araç operatörü veya belirlenen hedefi otonom bir şekilde takip etmeye başlar. İntikal halindeki birliklere eşlik eden araçlar için tasarlanmıştır.
         </p>
       </div>
 
       <div class="command-item">
-        <strong>Yumruk (Taş) ➔ "Stay" (Bekle/Dur):</strong>
+        <strong>Yumruk ➔ "Stay" (Bekle/Dur):</strong>
         <p>
           Operatör elini yumruk yaptığında, araç anında olduğu yerde sabitlenir. Ani tehlike anlarında veya hedefin gizlenmesi gerektiğinde aracı acil olarak durdurmak için kullanılır.
         </p>
       </div>
 
       <div class="command-item">
-        <strong>V İşareti (Makas) ➔ "Patrol" (Devriye At):</strong>
+        <strong>V İşareti ➔ "Patrol" (Devriye At):</strong>
         <p>
           Operatör iki parmağını kaldırdığında, araç bulunduğu bölgenin güvenliğini sağlamak amacıyla otonom devriye (patrol) moduna geçer ve belirlenen rotada keşif yapar.
         </p>
       </div>
     </div>
   </div>
+      <div class="gesture-image-grid">
+  <div class="gesture-image-card patrol">
+    <img src="patrol.png" alt="Patrol gesture">
+    <span>Patrol</span>
+  </div>
+
+  <div class="gesture-image-card stay">
+    <img src="stay.png" alt="Stay gesture">
+    <span>Stay</span>
+  </div>
+
+  <div class="gesture-image-card follow">
+    <img src="follow-me.png" alt="Follow Me gesture">
+    <span>Follow Me</span>
+  </div>
+</div>
 </details>
 
     <details class="project-accordion-card">

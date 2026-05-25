@@ -1190,6 +1190,33 @@
   font-weight: 700;
   letter-spacing: 0.6px;
 }
+  .command-list{
+  display: grid;
+  gap: 18px;
+  margin-top: 22px;
+}
+
+.command-item{
+  padding: 20px 22px;
+  border-radius: 22px;
+  border: 1px solid rgba(0,245,255,0.16);
+  background:
+    radial-gradient(circle at 18% 20%, rgba(0,245,255,0.09), transparent 38%),
+    rgba(3,8,18,0.42);
+}
+
+.command-item strong{
+  display: block;
+  color: #00f5ff;
+  font-size: 17px;
+  margin-bottom: 10px;
+}
+
+.command-item p{
+  margin: 0;
+  color: rgba(225,235,245,0.72);
+  line-height: 1.85;
+}
   </style>
 </head>
 <body>
@@ -1272,17 +1299,46 @@
 </details>
 
     <details class="project-accordion-card">
-      <summary>
-        <div class="accordion-title">
-          <span class="accordion-number">03</span>
-          <strong>Üçüncü Başlık Buraya Gelecek</strong>
-        </div>
-        <span class="accordion-icon">+</span>
-      </summary>
-      <div class="project-accordion-content">
-        <p>Bu alan üçüncü paragraf için hazır. Başlığı ve metni gönderdiğinde buraya yerleştirilecek.</p>
+  <summary>
+    <div class="accordion-title">
+      <span class="accordion-number">03</span>
+      <div>
+        <strong>Sistem Nasıl Çalışıyor?</strong>
+        <em>Anlık Komut ve Beden Dili</em>
       </div>
-    </details>
+    </div>
+    <span class="accordion-icon">+</span>
+  </summary>
+
+  <div class="project-accordion-content">
+    <p>
+      Proje, karmaşık altyapılar yerine operatörün el hareketlerini bilgisayar kamerası ile anlık (real-time) olarak izler ve analiz eder. Eğitiminde kullandığım derin öğrenme modeli (MobileNetV3), el hareketlerini yüksek güvenilirlikle sınıflandırarak bunları otonom aracın anlayacağı taktiksel komutlara çevirir. Şu anki simülasyon altyapısında temel olarak üç hayati komut kullanılmaktadır:
+    </p>
+
+    <div class="command-list">
+      <div class="command-item">
+        <strong>Açık El (Kağıt) ➔ "Follow Me" (Takip Et):</strong>
+        <p>
+          Operatör elini açtığında, otonom araç operatörü veya belirlenen hedefi otonom bir şekilde takip etmeye başlar. İntikal halindeki birliklere eşlik eden araçlar için tasarlanmıştır.
+        </p>
+      </div>
+
+      <div class="command-item">
+        <strong>Yumruk (Taş) ➔ "Stay" (Bekle/Dur):</strong>
+        <p>
+          Operatör elini yumruk yaptığında, araç anında olduğu yerde sabitlenir. Ani tehlike anlarında veya hedefin gizlenmesi gerektiğinde aracı acil olarak durdurmak için kullanılır.
+        </p>
+      </div>
+
+      <div class="command-item">
+        <strong>V İşareti (Makas) ➔ "Patrol" (Devriye At):</strong>
+        <p>
+          Operatör iki parmağını kaldırdığında, araç bulunduğu bölgenin güvenliğini sağlamak amacıyla otonom devriye (patrol) moduna geçer ve belirlenen rotada keşif yapar.
+        </p>
+      </div>
+    </div>
+  </div>
+</details>
 
     <details class="project-accordion-card">
       <summary>

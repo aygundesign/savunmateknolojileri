@@ -1177,6 +1177,19 @@
   }
 }
 
+  .accordion-title > div{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.accordion-title em{
+  font-style: normal;
+  color: rgba(0,245,255,0.72);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+}
   </style>
 </head>
 <body>
@@ -1236,17 +1249,27 @@
     </article>
 
     <details class="project-accordion-card">
-      <summary>
-        <div class="accordion-title">
-          <span class="accordion-number">02</span>
-          <strong>İkinci Başlık Buraya Gelecek</strong>
-        </div>
-        <span class="accordion-icon">+</span>
-      </summary>
-      <div class="project-accordion-content">
-        <p>Bu alan ikinci paragraf için hazır. Başlığı ve metni gönderdiğinde buraya yerleştirilecek.</p>
+  <summary>
+    <div class="accordion-title">
+      <span class="accordion-number">02</span>
+      <div>
+        <strong>Neden Bu Projeyi Geliştiriyorum?</strong>
+        <em>Projenin Çıkış Noktası</em>
       </div>
-    </details>
+    </div>
+    <span class="accordion-icon">+</span>
+  </summary>
+
+  <div class="project-accordion-content">
+    <p>
+      Günümüzde otonom sistemler (insansız hava, kara ve deniz araçları) savunma sanayisinin vazgeçilmez bir parçası haline gelmiştir. Ancak bu araçların kontrolü hala büyük ölçüde karmaşık kumandalara, ekranlara ve joystiklere bağlıdır. Sahada, özellikle stresin ve hareketliliğin yüksek olduğu anlarda, operatörün bir cihaz ekranına odaklanması dikkat dağınıklığına ve reaksiyon gecikmelerine yol açar.
+    </p>
+
+    <p>
+      Bu projeyi hayata geçirmemdeki temel motivasyon; insan-makine etkileşimini (HMI) en doğal, hızlı ve donanımdan bağımsız hale getirmektir. Hiçbir ekstra kumandaya ihtiyaç duymadan, sadece standart bir bilgisayar kamerası üzerinden alınan görüntülerin derin öğrenme algoritmalarıyla milisaniyeler içinde işlenmesiyle, bütün otonom araç platformlarının insan beden dilini anlayabilmesini ve gerçek zamanlı olarak tepki verebilmesini hedefledim.
+    </p>
+  </div>
+</details>
 
     <details class="project-accordion-card">
       <summary>
